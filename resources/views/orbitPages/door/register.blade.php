@@ -26,12 +26,7 @@
                     <div class="image">
                         <img src="{{ asset('images/homeP/goodfood.jpeg') }}" class="profile-im">
                     </div>
-                    {{-- <form action="{{ route('door.resgister') }}"> --}}
-                    @isset($url)
-                    <form method="POST" action='{{ url("register/$url") }}' >
-                    @else
-                    <form method="POST" action="{{ route('register') }}" >
-                    @endisset
+                    <form action="{{ route('door.resgister') }}">
                         <div class="input-group">
                             <label>name</label>
                             <input name="name" id="name" placeholder="user name">
@@ -65,7 +60,7 @@
                         </div>
                     </form>
                     <div class="register">
-                        <a href="{{ route('door.login') }}">Login</a>
+                        <a href="{{ route('door.resgister') }}">Login</a>
                     </div>
                 </div>
                 <div class="foot-b">

@@ -17,6 +17,7 @@ class AuthClientController extends Controller
     
     public function clientLogin(Request $request)
     {
+        dd($request);
         $request->validate([
             'email' => 'required|email|exists:clients,email',
             'password' => 'required'

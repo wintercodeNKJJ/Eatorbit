@@ -21,34 +21,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-// require __DIR__.'/auth.php';
-
-// Route::get('/',function(){
-//     return view('testsf.page');
-// });
-
-// Route::get('/',function(){
-//     return view('orbitPages.door.login');
-// });
 
 
 Route::get('/',function(){
-    return view('orbitPages.door.login');
+    return view('orbitPages.homePage');
 })->middleware('auth.client');
 
 Route::get('/login/manager', [AuthManagerController::class, 'login']);
-
-
-Route::post('/login/client', [AuthClientController::class,'clientLogin']);
-
 Route::get('logout', [LoginController::class,'logout']);
 
 Route::name('door.')->group( function(){
@@ -57,7 +36,12 @@ Route::name('door.')->group( function(){
     Route::get('/register',[PageController::class, 'toregister'])->name('toresgister');
 });
 
-Route::name('home.')->group(function(){
+Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
+Route::post('/login/client', [AuthClientController::class,'clientLogin'])->name('clientLogin');
+
+
+
+Route::middleware('auth.client')->name('home.')->group(function(){
     Route::get('/home',[PageController::class, 'home'] )->name('home');
     Route::get('/dishes',[PageController::class, 'dishes'] )->name('dishes');
     Route::get('/logout',[PageController::class, 'logout'] )->name('logout');

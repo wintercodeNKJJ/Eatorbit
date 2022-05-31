@@ -16,29 +16,28 @@
             <div class="login_box">
                 <div class="head-b">
                     <h2>Login</h2>
-                    <select name="role" id="role">
-                        <option value="1" selected="selected">user</option>
-                        <option value="2">Manager</option>
-                    </select>
                 </div>
                 <hr style="margin: 5px">
                 <div class="body-b">
                     <div class="image">
                         <img src="{{ asset('images/homeP/goodfood.jpeg') }}" class="profile-im">
                     </div>
-                    @isset($url)
-                    {{-- <form action={{ route('home.home') }}> --}}
-                    <form method="POST" action='{{ url("login/$url") }}'>
-                    @else
-                    <form method="POST" action="{{ route('login') }}">
-                    @endisset
+                    
+                    <form method="POST" action={{ route('verify') }}>
+                        @csrf
                         <div class="input-group">
                             <label>name</label>
-                            <input type="text" name="name" id="name" placeholder="user name">
+                            <input type="email" name="email" id="name" placeholder="user email">
                         </div>
                         <div class="input-group">
                             <label>password</label>
                             <input type="password" name="password" id="password" placeholder="password">
+                        </div>
+                        <div class="input-group">
+                            <select name="role" id="role">
+                                <option value="1" selected="selected">user</option>
+                                <option value="2">Manager</option>
+                            </select>
                         </div>
                         <div class="butn-b">
                             <button type="submit" class="btn">login</button>

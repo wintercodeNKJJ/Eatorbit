@@ -9,6 +9,7 @@ use App\Models\Menu;
 use App\Models\Reserve;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use LDAP\Result;
 
 class PageController extends Controller
@@ -17,14 +18,25 @@ class PageController extends Controller
 
     public function __construct()
     {
-        self::$user = Client::find(5);
+        self::$user = Auth::guard('client')->user();
     }
 
-    public function home()
+    public function verify(Request $request)
+    {
+        if($request->role == 1){
+            //dd($request);
+            return redirect()->route('clientLogin');
+        }
+        return view('orbitPages.home', compact('dishes', 'restaurants','client'));
+    }
+
+    public function home(Request $request)
     {
         $dishes = Meal::all();
         $restaurants = Restaurant::all();
         $client = self::$user;
+
+        dd($client);
         return view('orbitPages.home', compact('dishes', 'restaurants','client'));
     }
 
