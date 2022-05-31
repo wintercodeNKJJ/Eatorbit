@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="{{ Request::is('home') ? 'home-img-header' : '' }}{{ Request::is('restaurant*') ? 'resturant-img-header' : '' }}{{ Request::is('dishes*') ? 'dish-img-header' : '' }}{{ Request::is('profile*') ? 'profile-img-header' : '' }}">
+    <header class="{{ Request::is('home*') ? 'home-img-header' : '' }}{{ Request::is('restaurant*') ? 'resturant-img-header' : '' }}{{ Request::is('dishes*') ? 'dish-img-header' : '' }}{{ Request::is('profile*') ? 'profile-img-header' : '' }}">
         <nav>
             <div class="nav_page_icon">
                 <a id="page_icon" href="{{ route('home.home') }}"></a>
@@ -26,7 +26,7 @@
                     <a href="{{ route('home.restaurant') }}" class="{{ Request::is('restaurant*') ? 'current-page' : '' }}">Restaurant</a>
                     <a href="{{ route('home.dishes') }}" class="{{ Request::is('dishes*') ? 'current-page' : '' }}">Dishes</a>
                     <a href="{{ route('home.profile') }}" class="{{ Request::is('profile*') ? 'current-page' : '' }}">Profile</a>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('clientlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">

@@ -25,16 +25,19 @@ class AuthClientController extends Controller
         ]);
         
         $data = $request->only('email','password');
-
-        //dd($data);
-        dd(Auth::guard('client')->attempt($data));
+        
         if(Auth::guard('client')->attempt($data)){
-            dd(Auth::guard('client')->attempt($data));
+            $request->session()->regenerate();
             return redirect()->route('home.home');
         }
 
         return back();
     }
 
-    
+    public function clientlogout()
+    {
+        Auth::guard('client')->logout();
+
+        return redirect()->route('door.login');
+    }
 }

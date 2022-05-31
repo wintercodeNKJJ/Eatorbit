@@ -19,18 +19,21 @@ class PageController extends Controller
 
     public function __construct()
     {
+        
         self::$user = Auth::guard('client')->user();
     }
 
-    public function verify(Request $request)
+    public function resetfunction()
     {
-
         for($i=1 ;$i< 21 ; $i++){
             $client = Client::find($i);
             $client->password = Hash::make($client->password);
             $client->update();
         }
-        
+    }
+
+    public function verify(Request $request)
+    {      
         if($request->role == 1){
             //dd($request);
             return redirect()->route('clientLogin',$request);
@@ -42,9 +45,9 @@ class PageController extends Controller
     {
         $dishes = Meal::all();
         $restaurants = Restaurant::all();
-        $client = self::$user;
+        //$client = self::$user;
+        $client = Auth::guard('client')->user();
 
-        dd($client);
         return view('orbitPages.home', compact('dishes', 'restaurants','client'));
     }
 

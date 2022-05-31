@@ -6,6 +6,9 @@ use App\Http\Controllers\AuthClientController;
 use App\Http\Controllers\AuthManagerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PageController;
+use App\Models\Client;
+use App\Models\Meal;
+use App\Models\Restaurant;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/',function(){
-    return view('orbitPages.homePage');
+        return redirect()->route('home.home');
 })->middleware('auth.client');
 
 
@@ -35,7 +38,7 @@ Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
 Route::get('/login/client/verify', [AuthClientController::class,'clientLogin'])->name('clientLogin');
 
 Route::get('/login/manager', [AuthManagerController::class, 'login']);
-Route::get('logout', [LoginController::class,'logout']);
+Route::get('/logout', [AuthClientController::class,'clientlogout'])->name('clientlogout');
 
 Route::name('door.')->group( function(){
     Route::get('/login/client',[AuthClientController::class, 'login'])->name('login');
@@ -47,7 +50,6 @@ Route::name('door.')->group( function(){
 Route::middleware('auth.client')->name('home.')->group(function(){
     Route::get('/home',[PageController::class, 'home'] )->name('home');
     Route::get('/dishes',[PageController::class, 'dishes'] )->name('dishes');
-    Route::get('/logout',[PageController::class, 'logout'] )->name('logout');
     Route::get('/profile',[PageController::class, 'profile'] )->name('profile');
     Route::get('/restaurant',[PageController::class, 'restaurant'] )->name('restaurant');
     Route::get('/reserve',[PageController::class, 'reserve'] )->name('reserve');
