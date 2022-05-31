@@ -11,7 +11,7 @@ class Client extends Authenticatable
 {
     use HasFactory;
 
-    protected $guard = 'client';
+    protected $guarded = [];
 
     protected $fillable = [
         'name',

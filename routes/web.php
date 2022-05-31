@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthClientController;
+use App\Http\Controllers\AuthManagerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PageController;
+use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,22 +42,17 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',function(){
     return view('orbitPages.door.login');
-})->middleware('auth');
+})->middleware('auth.client');
 
-Route::get('/login/manager', [LoginController::class, 'showManagerLoginForm']);
-Route::get('/login/client', [LoginController::class,'showClientLoginForm']);
-Route::get('/register/manager', [RegisterController::class,'showManagerRegisterForm']);
-Route::get('/register/client', [RegisterController::class,'showClientRegisterForm']);
+Route::get('/login/manager', [AuthManagerController::class, 'login']);
 
-Route::post('/login/manager', [LoginController::class,'managerLogin']);
-Route::post('/login/client', [LoginController::class,'clientLogin']);
-Route::post('/register/manager', [RegisterController::class,'createManager']);
-Route::post('/register/client', [RegisterController::class,'createClient']);
+
+Route::post('/login/client', [AuthClientController::class,'clientLogin']);
 
 Route::get('logout', [LoginController::class,'logout']);
 
 Route::name('door.')->group( function(){
-    Route::get('/',[PageController::class, 'login'])->name('login');
+    Route::get('/login/client',[AuthClientController::class, 'login'])->name('login');
     Route::get('/registering',[PageController::class, 'register'])->name('resgister');
     Route::get('/register',[PageController::class, 'toregister'])->name('toresgister');
 });

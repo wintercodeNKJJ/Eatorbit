@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Manager extends Authenticatable
 {
     use HasFactory;
-    
-    protected $guard = 'manager';
+
+    protected $guarded = [];
 
     /**
      * Get all of the restaurants for the Manager
