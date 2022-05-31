@@ -11,6 +11,7 @@ class Client extends Authenticatable
 {
     use HasFactory;
 
+    
     protected $guarded = [];
 
     protected $fillable = [
@@ -20,6 +21,10 @@ class Client extends Authenticatable
         'profilePicture',
         'phone',
         'address',
+    ];
+
+    protected $hidden = [
+        'name','email','password',
     ];
     
     /**

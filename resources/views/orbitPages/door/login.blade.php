@@ -22,9 +22,18 @@
                     <div class="image">
                         <img src="{{ asset('images/homeP/goodfood.jpeg') }}" class="profile-im">
                     </div>
-                    
+
                     <form method="POST" action={{ route('verify') }}>
                         @csrf
+                        @if ($errors->any())
+                            <div style="color: red; font-family:Arial, Helvetica, sans-serif;">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="input-group">
                             <label>name</label>
                             <input type="email" name="email" id="name" placeholder="user email">

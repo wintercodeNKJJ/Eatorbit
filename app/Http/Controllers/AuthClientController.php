@@ -17,13 +17,19 @@ class AuthClientController extends Controller
     
     public function clientLogin(Request $request)
     {
-        dd($request);
+        //verifies login
+        //dd($request->role);
         $request->validate([
             'email' => 'required|email|exists:clients,email',
             'password' => 'required'
         ]);
+        
         $data = $request->only('email','password');
+
+        //dd($data);
+        dd(Auth::guard('client')->attempt($data));
         if(Auth::guard('client')->attempt($data)){
+            dd(Auth::guard('client')->attempt($data));
             return redirect()->route('home.home');
         }
 

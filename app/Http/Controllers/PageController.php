@@ -10,6 +10,7 @@ use App\Models\Reserve;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use LDAP\Result;
 
 class PageController extends Controller
@@ -23,9 +24,16 @@ class PageController extends Controller
 
     public function verify(Request $request)
     {
+
+        for($i=1 ;$i< 21 ; $i++){
+            $client = Client::find($i);
+            $client->password = Hash::make($client->password);
+            $client->update();
+        }
+        
         if($request->role == 1){
             //dd($request);
-            return redirect()->route('clientLogin');
+            return redirect()->route('clientLogin',$request);
         }
         return view('orbitPages.home', compact('dishes', 'restaurants','client'));
     }

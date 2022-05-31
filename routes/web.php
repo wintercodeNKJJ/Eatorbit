@@ -27,6 +27,13 @@ Route::get('/',function(){
     return view('orbitPages.homePage');
 })->middleware('auth.client');
 
+
+//Verification route
+Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
+
+//Cliebt login rout
+Route::get('/login/client/verify', [AuthClientController::class,'clientLogin'])->name('clientLogin');
+
 Route::get('/login/manager', [AuthManagerController::class, 'login']);
 Route::get('logout', [LoginController::class,'logout']);
 
@@ -35,10 +42,6 @@ Route::name('door.')->group( function(){
     Route::get('/registering',[PageController::class, 'register'])->name('resgister');
     Route::get('/register',[PageController::class, 'toregister'])->name('toresgister');
 });
-
-Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
-Route::post('/login/client', [AuthClientController::class,'clientLogin'])->name('clientLogin');
-
 
 
 Route::middleware('auth.client')->name('home.')->group(function(){
