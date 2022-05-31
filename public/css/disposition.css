@@ -1,0 +1,751 @@
+* {
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: rgb(192, 192, 192); */
+    padding: 0px;
+    color: black;
+    min-height: 100vh;
+}
+
+header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+}
+
+.home-img-header {
+    background-image: linear-gradient(to top,rgb(0, 0, 0),rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0)),url("../images/homeP/omiyu\ on\ Twitter.jpeg");
+}
+
+.resturant-img-header {
+    background-image: linear-gradient(to top,rgb(0, 0, 0),rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0)),url("../images/homeP/restarant.jpeg");
+}
+
+.dish-img-header {
+    background-image: linear-gradient(to top,rgb(0, 0, 0),rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0)),url("../images/homeP/jpeg\(2\).jpeg");
+}
+
+.profile-img-header {
+    background-image: linear-gradient(to top,rgb(0, 0, 0),rgba(0, 0, 0, 0.1),rgba(255, 255, 255, 0)),url("../images/homeP/Desktop\ Wallpapers\ Apples\ Food\ boards.jpeg");
+}
+
+.command-img-header {
+    background-image: linear-gradient(to bottom,rgb(34, 30, 22),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/homeP/Mediterranean\ Food\ Table_.jpeg');
+}
+
+.reservation-img-header {
+    background-image: linear-gradient(to bottom,rgb(34, 30, 22),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../homeP/ Eat\ Eau\ De\ Toilette\ Black\ Background.jpeg');
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #111;
+}
+
+.middle h1{
+    font-size: 50px;
+}
+
+.middle p{
+    font-size: 30px;
+}
+.middle hr {
+    margin: auto;
+    width: 40%;
+}
+
+/* profile header styling */
+
+.middle-profile {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #111;
+}
+
+.profile-im2 {
+    scale: 0.5;
+    border-radius: 50%;
+}
+
+.middle-profile h1 {
+    font-size: 50px;
+}
+
+.middle-profile p{
+    font-size: 30px;
+}
+.middle-profile hr {
+    margin: auto;
+    width: 40%;
+}
+
+/* menu profile image */
+
+.profile-im-menu {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    border-radius: 10px;
+    width: 350px;
+}
+
+/* command header styling */
+
+.middle-command {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #111;
+}
+
+.middle-command h1{
+    font-size: 50px;
+}
+
+.middle-command p{
+    font-size: 30px;
+}
+.middle-command hr {
+    margin: auto;
+    width: 40%;
+}
+
+.command-main-pos {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    margin-right: 10%;
+}
+
+.reserve-main-pos {
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    margin-right: 15%;
+}
+
+/* command layout */
+
+/* items in section */
+
+.citem {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    transition: 0.5s;
+    border: solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 5px ;
+}
+
+.citemr{
+    width: 100%;
+}
+
+.citem:hover {
+    scale: 1.05;
+    background-color: #7a7a7a;
+    border: solid #444;
+}
+
+/* image of an item */
+
+.citem_image {
+    width: 30%;
+    min-width: 140px;
+}
+
+/* item description */
+
+.citem_description {
+    background-color: #ddd;
+    width: 70%;
+    height: 100%;
+}
+
+/* item description */
+
+/* dishe name */
+.citem_name {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.citem_name h2 {
+    font-size: 40px;
+}
+
+/* dishe description */
+.citem_details {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.citem_info {
+    width: 40%;
+    border-right: solid #aaa;
+    height: 100%;
+    padding: 10px;
+}
+
+.citem_input {
+    width: 60%;
+    height: 100%;
+}
+
+.cform {
+    padding-left: 15px;
+}
+.cinput-group {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.cinput-group input {
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+    width: 50%;
+}
+
+.cinput-group label {
+    display: block; /* needed to controle label size */
+    margin-right: 5px;
+    width: 20%;
+}
+
+.citem_details p{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.citem_details .clast {
+    border-right: none;
+}
+
+/* dish options */
+.citem_options {
+    height: 30%;
+    width: 60%;
+    margin-left: 9px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.citem_options button {
+    border: none;
+    width: 90px;
+    height: 30px;
+    transition: 0.5s;
+}
+
+#cplt_command:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#cplt_visit:hover {
+    background-color: rgb(228, 40, 40);
+    color: white;
+}
+
+/* End command layout */
+
+/* navigation bar */
+
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    /* gap: 5px; */
+}
+
+.nav_page_icon {
+    background-color: #fff;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav_page_icon h3 {
+    width: 60%;
+    overflow: hidden;
+    font-size: 24px;
+    color: chocolate;
+}
+
+#page_icon {
+    width: 40%;
+    width: 100px;
+    height: 100px;
+    background-color: #818181;
+    margin: 2% 5px 2% 2%;
+    border-radius: 50%;
+    background-image: url('../images/homeP/goodfood.jpeg');
+    background-size: cover;
+    scale: 1.5;
+    overflow: hidden;
+}
+
+
+
+/* middle part of the navigation bar */
+
+.nav_buttons {
+    background-color: #fff;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+/* website name */
+.Site_name {
+    text-align: center;
+    height: 50%;
+    font-size: 40px;
+    color: chocolate;
+}
+
+.Site_name h3 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navigation buttons */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+}
+
+/* style the links */
+.buttons a {
+    float: left;
+    color: #777;
+    text-align: center;
+    padding: 14px;
+    font-size: 17px;
+    text-decoration: none;
+    width: 25%;
+    height: 100%;
+    border-bottom: 3px solid transparent;
+    transition: 0.4s;
+}
+
+/* change color on hover */
+.buttons a:hover {
+    border-radius: 10px 10px 0px 0px;
+    background-color: #ddd;
+    color: black;
+    border-bottom: 3px solid #363636;
+}
+
+/* add a color to the current link */
+.buttons a:active {
+    background-color: #7a7a7a;
+}
+
+.current-page{
+    background-color: #ccc;
+    border-radius: 10px 10px 0px 0px;
+    color: black !important;
+}
+
+/* navgation search part */
+
+.nav_search_bar {
+    background-color: #fff;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav_search_bar input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    width: 80%;
+    font-size: 16px;
+}
+
+.nav_search_bar input[type=text]:hover {
+    background-color: #ddd;
+}
+
+/* change size on different screens */
+
+@media screen and (max-width: 600px) {
+    .nav_search_bar input[type=text] {
+        border: 1px solid #777;
+    }
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    background-size: cover;
+}
+
+.home-img {
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/bodyP/Gourmet\ Eat\ Eau\ De\ Toilette\ Black\ Background.jpeg');
+}
+
+.resturant-img {
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/bodyP/Last\ Day\ in\ Varena\,\ Lake\ Como\ Viva\ La\ Vita.jpeg');
+}
+
+.dish-img {
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/bodyP/Creative\ Gourmet\ Barbecue\ Synthetic\ Background.jpeg');
+}
+
+.profile-img {
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/bodyp/Gourmet\ Eat\ Eau\ De\ Toilette\ Black\ Background.jpeg');
+}
+
+.command-img {
+    background-image: linear-gradient(to bottom,rgb(34, 30, 22),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/pics/Gourmet\ Eat\ Eau\ De\ Toilette\ Black\ Background.jpeg');
+}
+
+.reservation-img {
+    background-image: linear-gradient(to bottom,rgb(34, 30, 22),rgba(7, 7, 7, 0.2),rgba(252, 252, 252,0)),url('../images/pics/Gourmet\ Eat\ Eau\ De\ Toilette\ Black\ Background.jpeg');
+}
+
+.containt {
+    min-width: 700px;
+    width: 70%;
+}
+
+.containNews {
+    background-color: transparent;
+    min-width: 300px;
+    width: 30%;
+}
+
+.news-box {
+    background-color: #444;
+    margin-left: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.news-box:hover {
+    background-color: darkolivegreen;
+}
+
+.news-box img {
+    height: 150px;
+    min-width: 100px;
+    width: 45%;
+    border-radius: 5px;
+}
+
+.news-box .description {
+    padding: 5px;
+}
+
+.news-box .top-description {
+    display: flex;
+    gap: 10px;
+}
+
+.news-box .bottom-description {
+    min-width: 240px;
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+}
+
+.news-box .description {
+    min-width: 140px;
+    width: 55%;
+}
+
+.news-box .description .news-title {
+    color: white;
+}
+
+/* main body */
+
+.main {
+    width: 100%;
+    height: 100%;
+    min-height: 700px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.main_containt{
+    background-color: white;
+    border-radius: 10px;
+    height: 100%;
+    width: 70%;
+    padding-top: 100px;
+    min-height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-main{
+    background-image: url("../images/bordimages/jpeg\(16\).jpeg");
+}
+
+.resturant-main{
+    background-image: url("../images/bordimages/Cruises\ to\ Rome\ .jpeg");
+}
+
+.dish-main{
+    background-image: url("../images/bordimages/jpeg\(16\).jpeg");
+}
+
+.profile-main{
+    background-image: url("../images/bordimages/Slow\ Cooker\ Olive\ Garden\ Pasta\ e\ Fagioli.webp");
+}
+
+
+/* main article */
+
+article {
+    /* background-color: white; */
+    width: 100%;
+    height: 600px;
+    margin-bottom: 100px;
+    padding: 10px;
+    display: block;
+    overflow-x: scroll;
+}
+
+/* section title */
+
+.item_title h1 {
+    font-size: 60px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+    color: white;
+}
+
+/* items in section */
+
+.item {
+    background-color: transparent;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: flex-start;
+    transition: 0.5s;
+    border: solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 5px ;
+}
+
+.item:hover {
+    scale: 1.05;
+    background-color: #7a7a7a;
+    border: solid #444;
+}
+
+/* image of an item */
+
+.item_image {
+    width: 20%;
+    min-width: 140px;
+}
+
+/* item description */
+
+.item_description {
+    background-color: #ddd;
+    width: 80%;
+    height: 100%;
+}
+
+/* item description */
+
+/* dishe name */
+.item_name {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_name h2 {
+    font-size: 40px;
+}
+
+/* dishe description */
+.item_details {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.item_details p{
+    border-right: solid #aaa;
+    width: 30%;
+    height:60%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.item_details .last {
+    border-right: none;
+}
+
+/* dish options */
+.item_options {
+    height: 30%;
+    width: 100%;
+    margin-left: 9px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.item_options h3 {
+    background-color: rgb(233, 233, 73);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.item_options button {
+    border: none;
+    width: 90px;
+    height: 30px;
+    transition: 0.5s;
+}
+
+#plt_command:hover {
+    background-color: #04AA6D;
+    color: white;
+}
+
+#plt_commandD:hover {
+    background-color: #f00b29;
+    color: white;
+}
+
+#plt_visit:hover {
+    background-color: rgb(87, 87, 201);
+    color: white;
+}
+
+/* side navigation */
+
+.sidenav {
+    /* height: 100%; */
+    /* width: 30%;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding: 50px;
+    position: sticky;
+    padding-top: 100px; */
+    min-height: 2190.5px;
+    width: 30%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.sidelinks {
+    padding-top: 100px;
+    position: sticky;
+    top: 0;
+    width: 95%;
+    background-color: #aaa;
+    border-radius: 10px;
+}
+
+
+/* side navigation menu links */
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #363636;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* footer */
+footer {
+    background-color: #111;
+    width: 100%;
+    height: 150px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3%;
+    padding: 10px;
+}
+
+.col {
+    width: 20%;
+    padding: 5px;
+}
+
+.col p {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
