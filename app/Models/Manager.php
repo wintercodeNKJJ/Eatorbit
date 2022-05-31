@@ -13,6 +13,19 @@ class Manager extends Authenticatable
 
     protected $guarded = [];
 
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'profilePicture',
+        'phone',
+        'address',
+    ];
+
+    protected $hidden = [
+        'name','email','password',
+    ];
+
     /**
      * Get all of the restaurants for the Manager
      *

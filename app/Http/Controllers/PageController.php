@@ -11,17 +11,11 @@ use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use LDAP\Result;
 
 class PageController extends Controller
 {
-    protected static $user;
-
-    public function __construct()
-    {
-        
-        self::$user = Auth::guard('client')->user();
-    }
 
     public function resetfunction()
     {
@@ -35,10 +29,47 @@ class PageController extends Controller
     public function verify(Request $request)
     {      
         if($request->role == 1){
-            //dd($request);
             return redirect()->route('clientLogin',$request);
+        }else{
+            return redirect()->route('managerLogin',$request);
         }
-        return view('orbitPages.home', compact('dishes', 'restaurants','client'));
+    }
+
+    public function verifyRegister(Request $request)
+    {      
+        if($request->role == 1){
+                $request->validate([
+                    'name' => 'required',
+                    'email' => 'required|email',
+                    'password' => 'required',
+                    'address' => 'required',
+                    'phone' => 'required',
+                    'profilePicture' => 'required|image|mimes:png,jpg|max:5048',
+                ]);
+                
+                //dd($request);
+        
+                $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
+                $request->profilePicture->move(public_path('images/clients'),$newImageName);
+                
+                //dd($request);
+                Client::create([
+                    'profilePicture' => $newImageName,
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'email_verified_at' => now(),
+                    'remember_token' => Str::random(10),
+                    'password' => Hash::make($request->password),
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                ]);
+
+                //dd($request);
+        
+                return redirect()->route('door.login');
+        }else{
+            return redirect()->route('managerRegister',$request);
+        }
     }
 
     public function home(Request $request)
@@ -54,20 +85,20 @@ class PageController extends Controller
     public function dishes()
     {
         $dishes = Meal::all();
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.dishes', compact('dishes','client'));
     }
 
     public function restaurant()
     {
         $restaurants = Restaurant::all();
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.restaurants', compact('restaurants','client'));
     }
 
     public function profile()
     {
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         //dd($client->commands[0]->menu->meal);
         return view('orbitPages.clients.profile', compact('client'));
     }
@@ -75,7 +106,7 @@ class PageController extends Controller
     public function reserve(Request $res)
     {
         $restaurant = Restaurant::find($res->id);
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.reservation', compact('restaurant', 'client'));
     }
 
@@ -91,20 +122,20 @@ class PageController extends Controller
 
     public function register()
     {
-        return view('orbitPages.door.login');
+        return view('orbitPages.door.register');
     }
 
     public function resList(Request $request)
     {
         $dishe = Meal::find($request->id);
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.restaurant-list', compact('dishe','client'));
     }
 
     public function command(Request $request)
     {
         $menu = Menu::find($request->id);
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.command', compact('menu', 'client'));
     }
 
@@ -149,7 +180,7 @@ class PageController extends Controller
     public function menu(Request $res)
     {
         $restaurant = Restaurant::find($res->id);
-        $client = self::$user;
+        $client = Auth::guard('client')->user();;
         return view('orbitPages.clients.menu', compact('restaurant','client'));
     }
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthClientController extends Controller
 {
@@ -14,11 +16,13 @@ class AuthClientController extends Controller
         }
         return view('orbitPages.door.login');
     }
+
+    /**
+     * client login function
+     */
     
     public function clientLogin(Request $request)
     {
-        //verifies login
-        //dd($request->role);
         $request->validate([
             'email' => 'required|email|exists:clients,email',
             'password' => 'required'
@@ -34,6 +38,13 @@ class AuthClientController extends Controller
         return back();
     }
 
+    /**
+     * client register function
+     */
+
+    /**
+     * Client logout function
+     */
     public function clientlogout()
     {
         Auth::guard('client')->logout();

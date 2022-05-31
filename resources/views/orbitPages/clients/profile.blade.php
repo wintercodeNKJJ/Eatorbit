@@ -138,7 +138,7 @@
                                                 <p class="last">stars/rating</p>
                                             </div>
                                             <div class="item_options">
-                                                <h3>{{ $command->menu->price }}FCFA</h3>
+                                                <h3>{{ $reserve->cost }}FCFA</h3>
                                                 <form method="POST" action="{{ route('home.deletRes') }}">
                                                     @csrf
                                                     @method('DELETE')

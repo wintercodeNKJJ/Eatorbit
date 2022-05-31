@@ -28,17 +28,32 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',function(){
         return redirect()->route('home.home');
-})->middleware('auth.client');
+})->middleware('auth.client','auth.manager');
 
 
-//Verification route
+//client login selection Verification route
 Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
 
-//Cliebt login rout
+//client Register selection Verification route
+Route::post('/verifyRegister',[PageController::class, 'verifyRegister'] )->name('verifyRegister');
+
+/**
+ * Client login route
+ */
 Route::get('/login/client/verify', [AuthClientController::class,'clientLogin'])->name('clientLogin');
 
-Route::get('/login/manager', [AuthManagerController::class, 'login']);
+
+/**
+ * Client Register route
+ */
+Route::get('/login/Register/verify', [AuthClientController::class,'clientRegister'])->name('clientRegister');
+
+//Client logout route
 Route::get('/logout', [AuthClientController::class,'clientlogout'])->name('clientlogout');
+
+//Manager login route
+Route::get('/login/manager/verify', [AuthManagerController::class,'managerLogin'])->name('managerLogin');
+
 
 Route::name('door.')->group( function(){
     Route::get('/login/client',[AuthClientController::class, 'login'])->name('login');
