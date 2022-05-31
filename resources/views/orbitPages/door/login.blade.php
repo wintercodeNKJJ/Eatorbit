@@ -45,7 +45,7 @@
                         </div>
                     </form>
                     <div class="register">
-                        <a href="{{ route('door.toresgister') }}">register</a>
+                        <a href="{{ route('door.resgister') }}">register</a>
                     </div>
                 </div>
                 <div class="foot-b">

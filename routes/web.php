@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',function(){
     return view('orbitPages.door.login');
-});
+})->middleware('auth');
 
 Route::get('/login/manager', [LoginController::class, 'showManagerLoginForm']);
 Route::get('/login/client', [LoginController::class,'showClientLoginForm']);
@@ -90,3 +90,4 @@ Route::name('manager.')->group(function () {
 //     Route::post('/stor',[ClientController::class, 'stor'] )->name('stor');
 //     Route::get('/viewimage',[ClientController::class, 'viewimage'] )->name('viewimage');
 // });
+Auth::routes();
