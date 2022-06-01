@@ -78,8 +78,8 @@ Route::middleware('auth.client')->name('home.')->group(function(){
 });
 
 
-Route::name('manager.')->group(function () {
-    //Route::view('/admin', 'admin');
+Route::middleware('auth.manager')->name('manager.')->group(function () {
+    Route::get('/Mhome',[PageController::class, 'managerhome'] )->name('home');
 });
 
 // Route::prefix('info')->name('info.')->group(function(){

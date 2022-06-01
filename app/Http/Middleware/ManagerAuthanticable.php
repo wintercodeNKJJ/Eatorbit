@@ -17,7 +17,7 @@ class ManagerAuthanticable
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::guard('client')->check()){
+        if(!Auth::guard('manager')->check()){
             return redirect()->route('door.login');
         }
         return $next($request);

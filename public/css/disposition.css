@@ -534,6 +534,26 @@ nav {
     background-size: cover;
 }
 
+.main_containt .dish-Add {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.dish-Add button{
+    border: none;
+    width: 90px;
+    height: 40px;
+    background-color: #04AA6D;
+}
+
+.dish-Add button:hover{
+    border: none;
+    width: 90px;
+    height: 40px;
+    background-color: royalblue;
+}
+
 .home-main{
     background-image: url("../images/bordimages/jpeg\(16\).jpeg");
 }
@@ -572,6 +592,93 @@ article {
     margin-bottom: 40px;
     color: white;
 }
+
+/* manager item derived from plate item */
+.resMenuitem {
+    background-color: transparent;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: flex-start;
+    transition: 0.5s;
+    border: solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 5px ;
+}
+
+.resMenuitem:hover {
+    scale: 1.05;
+    background-color: #7a7a7a;
+    border: solid #444;
+}
+
+.resMenu_image {
+    width: 20%;
+    min-width: 70px;
+}
+
+.dish_description {
+    background-color: #ddd;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dish_name {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dish_name h2 {
+    font-size: 30px;
+}
+
+.dish_options {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 5px;
+    padding: 4px;
+}
+
+.dish_options h3 {
+    background-color: rgb(233, 233, 73);
+    border-radius: 10px;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.dish_options button {
+    border: none;
+    width: 90px;
+    height: 20px;
+    transition: 0.5s;
+}
+
+.dish_details {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dish_details p{
+    width: 100%;
+    height:70%;
+    text-align: center;
+    overflow: hidden;
+}
+/* manager style end */
 
 /* items in section */
 

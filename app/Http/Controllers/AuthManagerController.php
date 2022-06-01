@@ -35,7 +35,7 @@ class AuthManagerController extends Controller
     /**
      * Client logout function
      */
-    public function clientlogout()
+    public function managerlogout()
     {
         Auth::guard('manager')->logout();
 

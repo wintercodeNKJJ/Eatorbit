@@ -5,40 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./styles/disposition.css" rel="stylesheet" type="text/css" />
-    <link href="./styleslogin.css" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/styleslogin.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/disposition.css') }}" type="text/css" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <header class="home-img-header">
-        <nav>
-            <div class="nav_page_icon">
-                <a id="page_icon" href="./home_page.html"></a>
-                <!-- <h3>EatOrbit</h3> -->
-            </div>
-            <div class="nav_buttons">
-                <div class="Site_name">
-                    <h3>Good Food</h3>
+            <nav>
+                <div class="nav_page_icon">
+                    <a id="page_icon" href="{{ route('manager.home') }}"></a>
+                    <!-- <h3>EatOrbit</h3> -->
                 </div>
-                <div class="buttons">
-                    <a href="./home_page.html" class="current-page">Home</a>
-                    <a href="./profile.html">Profile</a>
-                    <a href="./login.html">Logout</a>
+                <div class="nav_buttons">
+                    <div class="Site_name">
+                        <h3>Good Food</h3>
+                    </div>
+                    <div class="buttons">
+                        <a href="./home_page.html">Manager Home</a>
+                        <a href="./login.html">Logout</a>
+                    </div>
                 </div>
+                <div class="nav_search_bar">
+                    <input type="text" placeholder="Search">
+                </div>
+            </nav>
+            <img class="profile-im2" src="{{ asset('images/clients/1653854118pp.jpg') }}">
+            <div class="middle-profile">
+                <h1>Jordan Junior</h1>
+                <hr>
+                <p>Profile info</p>
+                <h2>Adress</h2>
+                <h2>Email</h2>
+                <h2>Number</h2>
+                <h2>payment mode</h2>
             </div>
-            <div class="nav_search_bar">
-                <input type="text" placeholder="Search">
-            </div>
-        </nav>
-        <div class="header_background"></div>
-        <div class="middle">
-            <h1>MANAGE YOUR RESTAURANTS</h1>
-            <hr>
-            <p>welcome</p>
-        </div>
-
-    </header>
+    
+        </header>
     <div class="container home-img">
         <div class="containt">
             <div class="main">
@@ -147,12 +150,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dish-Add">
-                            <form action="./1addrestaurant.html">
-                                <button>Add Restaurant</button>
-                            </form>
-                        </div>
                     </article>
+                    <div class="dish-Add">
+                        <form action="./1addrestaurant.html">
+                            <button>Add Restaurant</button>
+                        </form>
+                    </div>
 
                     <article id="Best_Dishes" class="dishes">
                         <div class="item_title">

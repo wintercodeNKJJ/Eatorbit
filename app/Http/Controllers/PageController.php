@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Command;
+use App\Models\Manager;
 use App\Models\Meal;
 use App\Models\Menu;
 use App\Models\Reserve;
@@ -31,6 +32,7 @@ class PageController extends Controller
         if($request->role == 1){
             return redirect()->route('clientLogin',$request);
         }else{
+            return view('orbitPages.manager.1manager');
             return redirect()->route('managerLogin',$request);
         }
     }
@@ -68,7 +70,36 @@ class PageController extends Controller
         
                 return redirect()->route('door.login');
         }else{
-            return redirect()->route('managerRegister',$request);
+            
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+                'address' => 'required',
+                'phone' => 'required',
+                'profilePicture' => 'required|image|mimes:png,jpg|max:5048',
+            ]);
+            
+            //dd($request);
+    
+            $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
+            $request->profilePicture->move(public_path('images/clients'),$newImageName);
+            
+            //dd($request);
+            Manager::create([
+                'profilePicture' => $newImageName,
+                'name' => $request->name,
+                'email' => $request->email,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'password' => Hash::make($request->password),
+                'address' => $request->address,
+                'phone' => $request->phone,
+            ]);
+
+            //dd($request);
+    
+            return redirect()->route('door.login');
         }
     }
 
@@ -76,7 +107,6 @@ class PageController extends Controller
     {
         $dishes = Meal::all();
         $restaurants = Restaurant::all();
-        //$client = self::$user;
         $client = Auth::guard('client')->user();
 
         return view('orbitPages.home', compact('dishes', 'restaurants','client'));
@@ -194,5 +224,13 @@ class PageController extends Controller
     {
         Command::find($del->id)->delete();
         return redirect()->route('home.profile');
+    }
+
+
+    //Manager pages
+
+    public function managerLogin()
+    {
+        return view('orbitPages.manager.1manager');
     }
 }
