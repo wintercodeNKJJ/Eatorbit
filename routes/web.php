@@ -31,10 +31,10 @@ Route::get('/',function(){
 })->middleware('auth.client','auth.manager');
 
 
-//client login selection Verification route
+//client and manager login selection Verification route
 Route::post('/verify',[PageController::class, 'verify'] )->name('verify');
 
-//client Register selection Verification route
+//client and manager Register selection Verification route
 Route::post('/verifyRegister',[PageController::class, 'verifyRegister'] )->name('verifyRegister');
 
 /**
@@ -42,11 +42,6 @@ Route::post('/verifyRegister',[PageController::class, 'verifyRegister'] )->name(
  */
 Route::get('/login/client/verify', [AuthClientController::class,'clientLogin'])->name('clientLogin');
 
-
-/**
- * Client Register route
- */
-Route::get('/login/Register/verify', [AuthClientController::class,'clientRegister'])->name('clientRegister');
 
 //Client logout route
 Route::get('/logout/client', [AuthClientController::class,'clientlogout'])->name('clientlogout');

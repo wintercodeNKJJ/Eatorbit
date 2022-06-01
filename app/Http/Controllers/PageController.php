@@ -21,7 +21,7 @@ class PageController extends Controller
     public function resetfunction()
     {
         for($i=1 ;$i< 21 ; $i++){
-            $client = Client::find($i);
+            $client = Manager::find($i);
             $client->password = Hash::make($client->password);
             $client->update();
         }
@@ -32,11 +32,13 @@ class PageController extends Controller
         if($request->role == 1){
             return redirect()->route('clientLogin',$request);
         }else{
-            $manager = Manager::find(18);
-            $restaurants = null;
-            $Menu = Restaurant::find($request->id);
-            //dd($manager->restaurants[0]->menus);
-            return view('orbitPages.manager.1manager',compact('manager','Menu','restaurants'));
+
+            // $this->resetfunction();
+            // $manager = Manager::find(18);
+            // $restaurants = null;
+            // $Menu = Restaurant::find($request->id);
+            // //dd($manager->restaurants[0]->menus);
+            // return view('orbitPages.manager.1manager',compact('manager','Menu','restaurants'));
             return redirect()->route('managerLogin',$request);
         }
     }
@@ -241,21 +243,21 @@ class PageController extends Controller
     //restaurant reservations
     public function reserves(Request $request)
     {   
-        $manager = Manager::find(18);
+        $manager = Auth::guard('manager')->user();;
         $restaurants = Restaurant::find($request->id);
         return view('orbitPages.manager.1manager',compact('manager','restaurants'));
     }
 
     public function retaurantmenu(Request $request)
     {   
-        $manager = Manager::find(18);
+        $manager = Auth::guard('manager')->user();;
         $Menu = Restaurant::find($request->id);
         return view('orbitPages.manager.1manager',compact('manager','Menu'));
     }
 
     public function restauranredit(Request $request)
     {   
-        $manager = Manager::find(18);
+        $manager = Auth::guard('manager')->user();;
         $restaurants = Restaurant::find($request->id);
         return view('orbitPages.manager.1editrestaurant',compact('manager','restaurants'));
     }
@@ -290,7 +292,7 @@ class PageController extends Controller
 
     public function managerhome(Request $request)
     {
-        $manager = Manager::find(18);
+        $manager = Auth::guard('manager')->user();
         $Menu = Restaurant::find($request->id);
         return view('orbitPages.manager.1manager',compact('Menu','manager'));
     }

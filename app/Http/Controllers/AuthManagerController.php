@@ -20,13 +20,13 @@ class AuthManagerController extends Controller
     public function managerLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:clients,email',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
         $data = $request->only('email','password');
         if(Auth::guard('manager')->attempt($data)){
-            return redirect()->route('home.home');
+            return redirect()->route('manager.home');
         }
 
         return back();

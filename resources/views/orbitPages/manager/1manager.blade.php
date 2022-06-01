@@ -200,35 +200,41 @@
                                     </div>
                                 @endforeach
                             @else
-                                @foreach ($manager->restaurants[0]->menus as $menu)
-                                <div class="resMenuitem">
-                                    <img src="./dishes/Product Details.jpeg" class="resMenu_image">
-                                    <div class="dish_description">
-                                        <div class="dish_name">
-                                            <h2>{{ $menu->meal->name }}</h2>
-                                            <div class="dish_details">
-                                                <p>{{ $menu->meal->description }}</p>
-                                                <!-- <p># of people</p>
-                                                <p class="last">stars/rating</p> -->
+                                @if (count($manager->restaurants)>0)
+                                    @foreach ($manager->restaurants[0]->menus as $menu)
+                                    <div class="resMenuitem">
+                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <div class="dish_description">
+                                            <div class="dish_name">
+                                                <h2>{{ $menu->meal->name }}</h2>
+                                                <div class="dish_details">
+                                                    <p>{{ $menu->meal->description }}</p>
+                                                    <!-- <p># of people</p>
+                                                    <p class="last">stars/rating</p> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="dish_options">
+                                                <h3>{{ $menu->price }}FCFA</h3>
+                                                <form method="POST" action="{{ route('manager.editdish') }}">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                    <button name="command" id="plt_command">Edit dish</button>
+                                                </form>
+                                                <form method="POST" action="{{ route('manager.deletdish') }}">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                    <button name="visit_plates" id="plt_visit">Delet dish</button>
+                                                </form>
                                             </div>
                                         </div>
-                                        
-                                        <div class="dish_options">
-                                            <h3>{{ $menu->price }}FCFA</h3>
-                                            <form method="POST" action="{{ route('manager.editdish') }}">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $menu->id }}">
-                                                <button name="command" id="plt_command">Edit dish</button>
-                                            </form>
-                                            <form method="POST" action="{{ route('manager.deletdish') }}">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $menu->id }}">
-                                                <button name="visit_plates" id="plt_visit">Delet dish</button>
-                                            </form>
-                                        </div>
                                     </div>
+                                    @endforeach
+                                @else
+                                <div class="item_title">
+                                    <h1>NOTHING TO DISPLAY</h1>
                                 </div>
-                                @endforeach
+                                @endif
                             @endif
                         @endif
 

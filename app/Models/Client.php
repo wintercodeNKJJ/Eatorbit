@@ -21,6 +21,8 @@ class Client extends Authenticatable
         'profilePicture',
         'phone',
         'address',
+        'email_verified_at',
+        'remember_token'
     ];
 
     protected $hidden = [
