@@ -22,12 +22,13 @@
                     <h3>Good Food</h3>
                 </div>
                 <div class="buttons">
-                    <a href="{{ route('manager.home') }}" class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
+                    <a href="{{ route('manager.home') }}"
+                        class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
                     <a href="{{ route('managerlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">
-                <input type="text" placeholder="Search">
+                <h1>{{ $manager->name }}</h1>
             </div>
         </nav>
         <div class="header_background"></div>
@@ -37,13 +38,13 @@
             <p style="color: aliceblue;">dished</p>
         </div>
 
-        <form>
+        <form method="POST" action="#">
             <div class="command-main-pos">
                 <div class="citem">
-                    <img src="./dishes/jpeg(6).jpeg" class="citem_image">
+                    <img src="{{ asset('images/dishes/' . $dish->profile . '.jpeg') }}" class="citem_image">
                     <div class="citem_description">
                         <div class="citem_name">
-                            <h2>Dish name</h2>
+                            <h2>{{ $dish->name }}</h2>
                         </div>
                         <div class="citem_details">
                             <div class="citem_info">
@@ -52,13 +53,14 @@
                                 <input type="file" name="im"><br><br>
                                 <label style="font-family: Arial, Helvetica, sans-serif;">Plate description:</label>
                                 <br>
-                                <textarea style="width: 250px; height: 100px;"></textarea>
+                                <textarea aria-valuetext="{{ $dish->description }}" style="width: 250px; height: 100px;"></textarea>
                             </div>
                             <div class="citem_input">
                                 <div class="cform">
                                     <div class="cinput-group">
                                         <label class="naming">Meal name:</label>
-                                        <input type="text" name="name" id="name" placeholder="Name" readonly="readonly">
+                                        <input value="{{ $dish->name }}" type="text" name="name" id="name"
+                                            placeholder="Name" readonly="readonly">
                                     </div>
                                     <div class="cinput-group">
                                         <label>Price:</label>
@@ -70,7 +72,8 @@
                                     </div>
                                     <div class="citem_options">
                                         <button name="command" id="cplt_command">Command</button>
-                                        <button name="visit_plates" id="cplt_visit">Cancel</button>
+                                        <a href="#" name="visit_plates" id="cplt_visit"
+                                            style="text-decoration: none; font-family:Arial, Helvetica, sans-serif; padding:5px; color:black;">Cancel</a>
                                     </div>
                                 </div>
                             </div>

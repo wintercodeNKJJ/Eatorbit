@@ -45,7 +45,7 @@
                     <!-- item 1 -->
                     @foreach ($restaurants as $restaurant)
                         <div class="item">
-                            <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="item_image">
+                            <img src="{{ asset('images/restimage/'.$restaurant->profile .'.jpeg') }}" class="item_image">
                             <div class="item_description">
                                 <div class="item_name">
                                     <h2>{{ $restaurant->name }}</h2>
@@ -59,11 +59,11 @@
                                     <h3>4.3</h3>
                                     <form action="{{ route('home.reserve') }}">
                                         <input value="{{ $restaurant->id }}" name="id" type="hidden">
-                                        <button type="submit" name="command" id="plt_command">Reserve</button>
+                                        <button type="submit" id="plt_command">Reserve</button>
                                     </form>
                                     <form action="{{ route('home.menu') }}">
                                         <input value="{{ $restaurant->id }}" name="id" type="hidden">
-                                        <button type="submit" name="visit_plates" id="plt_visit">Menu</button>
+                                        <button type="submit" id="plt_visit">Menu</button>
                                     </form>
                                 </div>
                             </div>

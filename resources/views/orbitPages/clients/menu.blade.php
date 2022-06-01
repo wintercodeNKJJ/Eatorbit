@@ -34,7 +34,7 @@
                 <h1>{{ $client->name }}</h1>
             </div>
         </nav>
-        <img class="profile-im-menu" src="./images/Premium Vector Retro restaurant logo.jpeg"></img>
+        <img class="profile-im-menu" src="{{ asset('images/restimage/'.$restaurant->profile .'.jpeg') }}"></img>
         <div class="middle-profile">
             <h1>{{ $restaurant->name }} Menu</h1>
             <hr>

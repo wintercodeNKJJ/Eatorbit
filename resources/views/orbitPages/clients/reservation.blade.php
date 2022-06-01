@@ -44,7 +44,7 @@
 
         <div class="reserve-main-pos">
             <div class="citem">
-                <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="citem_image">
+                <img src="{{ asset('images/restimage/'.$restaurant->profile .'.jpeg') }}" class="citem_image">
                 <div class="citem_description">
                     <div class="citem_name">
                         <h2>{{ $restaurant->name }}</h2>

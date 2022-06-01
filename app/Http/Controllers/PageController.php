@@ -223,6 +223,9 @@ class PageController extends Controller
     {
         $restaurant = Restaurant::find($res->id);
         $client = Auth::guard('client')->user();;
+
+        
+        
         return view('orbitPages.clients.menu', compact('restaurant','client'));
     }
 
@@ -282,8 +285,10 @@ class PageController extends Controller
 
     public function restauranreditdish(Request $request)
     {
-        $dish = Meal::find($request->id);
-        return view('orbitPages.manager.1editdish',compact('dish'));
+        $menu = Menu::find($request->id);
+        $dish = $menu->meal;
+        $manager = Auth::guard('manager')->user();
+        return view('orbitPages.manager.1editdish',compact('dish','manager'));
     }
 
     public function restaurantdeletdish(Request $request)
