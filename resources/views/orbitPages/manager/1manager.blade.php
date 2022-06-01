@@ -62,7 +62,7 @@
                         @forelse ($manager->restaurants as $restaurant )
                             <!-- item 1 -->
                         <div class="item">
-                            <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="item_image">
+                            <img src="{{ asset('images/restimage/'. $restaurant->profile .'.jpeg') }}" class="item_image">
                             <div class="item_description">
                                 <div class="item_name">
                                     <h2>{{ $restaurant->name }}</h2>
@@ -144,7 +144,7 @@
                             @if(isset($Menu))
                                 @foreach ($Menu->menus as $menu)
                                     <div class="resMenuitem">
-                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
                                                 <h2>{{ $menu->meal->name }}</h2>
@@ -203,12 +203,12 @@
                                 @if (count($manager->restaurants)>0)
                                     @foreach ($manager->restaurants[0]->menus as $menu)
                                     <div class="resMenuitem">
-                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
                                                 <h2>{{ $menu->meal->name }}</h2>
                                                 <div class="dish_details">
-                                                    <p>{{ $menu->meal->description }}</p>
+                                                    <p>{{ $menu->meal->description }}OOpo{{ $menu->meal->profile }}</p>
                                                     <!-- <p># of people</p>
                                                     <p class="last">stars/rating</p> -->
                                                 </div>
@@ -256,7 +256,7 @@
         <div class="containNews">
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./images/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg"></img>
+                    <img src="{{ asset('images/newsimage/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg') }}"></img>
                     <div class="description">
                         <label class="news-title">
                             <h4>This is some side info</h4>
@@ -277,7 +277,7 @@
             </div>
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./newsimage/61 best.jpeg">
+                    <img src="{{ asset('images/newsimage/61 best.jpeg') }}">
                     <div class="description">
                         <label>
                             <h4 class="news-title">This is some side info</h4>
@@ -298,7 +298,7 @@
             </div>
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./newsimage/River Wok Logo Design.png"></img>
+                    <img src="{{ asset('images/newsimage/River Wok Logo Design.png') }}"></img>
                     <div class="description">
                         <label>
                             <h4 class="news-title">This is some side info</h4>

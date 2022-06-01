@@ -40,7 +40,7 @@
         <form>
             <div class="command-main-pos">
                 <div class="citem">
-                    <img src="./restimage/Fresh Food Logo Template Download on Pngtree.jpeg" class="citem_image">
+                    <img src="{{ asset('images/restimage/'.$restaurants->profile .'.jpeg') }}" class="citem_image">
                     <div class="citem_description">
                         <div class="citem_name">
                             <h2>Dish name</h2>

@@ -24,9 +24,9 @@ class PageController extends Controller
     {
         $pics = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
         for($i=1 ;$i< 111 ; $i++){
-            $client = Notice::find($i);
+            $client = Manager::find($i);
             $j = $pics[array_rand($pics,1)];
-            $client->profile = $j;
+            $client->profilePicture = $j;
             $client->update();
         }
     }
@@ -34,8 +34,8 @@ class PageController extends Controller
     public function verify(Request $request)
     {      
         if($request->role == 1){
-            $this->resetfunction();
-            dd('done');
+            //$this->resetfunction();
+            //dd('done');
             return redirect()->route('clientLogin',$request);
         }else{
 
@@ -251,6 +251,7 @@ class PageController extends Controller
     {   
         $manager = Auth::guard('manager')->user();;
         $restaurants = Restaurant::find($request->id);
+        //dd($restaurants->reserves);
         return view('orbitPages.manager.1manager',compact('manager','restaurants'));
     }
 

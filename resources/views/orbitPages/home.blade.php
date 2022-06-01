@@ -47,7 +47,7 @@
                                             @if ($restaurant->id < 4)
                                             <!-- item 1 -->
                                                 <div class="item">
-                                                    <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="item_image">
+                                                    <img src="{{ asset('images/restimage/'. $restaurant->profile .'.jpeg') }}" class="item_image">
                                                     <div class="item_description">
                                                         <div class="item_name">
                                                             <h2>{{ $restaurant->name }}</h2>
@@ -55,7 +55,7 @@
                                                         <div class="item_details">
                                                             <p>{{ $restaurant->location }}</p>
                                                             <p>{{ $restaurant->manager->name }}</p>
-                                                            <p class="last">stars/rating</p>
+                                                            <p class="last">stars/rating{{ $restaurant->profile }}</p>
                                                         </div>
                                                         <div class="item_options">
                                                             <h3>4.3</h3>
@@ -80,7 +80,7 @@
                                     @if ($dish->id < 4)
                                         <!-- item 1 -->
                                         <div class="item">
-                                            <img src="./pics/dish.jpeg" class="item_image">
+                                            <img src="{{ asset('images/dishes/'. $dish->profile .'.jpeg') }}" class="item_image">
                                             <div class="item_description">
                                                 <div class="item_name">
                                                     <h2>{{ $dish->name }}</h2>
@@ -110,7 +110,7 @@
                             @if ($restaurant->id > 4 && $restaurant->id < 10)
                             <!-- item 1 -->
                                 <div class="item">
-                                    <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="item_image">
+                                    <img src="{{ asset('images/restimage/'. $restaurant->profile .'.jpeg') }}" class="item_image">
                                     <div class="item_description">
                                         <div class="item_name">
                                             <h2>{{ $restaurant->name }}</h2>
@@ -118,7 +118,7 @@
                                         <div class="item_details">
                                             <p>{{ $restaurant->location }}</p>
                                             <p>{{ $restaurant->manager->name }}</p>
-                                            <p class="last">stars/rating</p>
+                                            <p class="last">stars/rating {{ $restaurant->profile }}</p>
                                         </div>
                                         <div class="item_options">
                                             <h3>4.3</h3>
@@ -141,14 +141,14 @@
                                 @if ($dish->id > 4 && $dish->id < 10)
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/dishes/'. $dish->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $dish->name }}</h2>
                                             </div>
                                             <div class="item_details">
                                                 <p>{{ $dish->description }}</p>
-                                                <p># of people</p>
+                                                <p># of people{{ $dish->profile }}</p>
                                                 <p class="last">stars/rating</p>
                                             </div>
                                             <div class="item_options">
