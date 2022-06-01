@@ -9,7 +9,7 @@
                     <a href="#Best_Dishes">Cameroonian</a>
                     <a href="#Best_Restaurants">Italian</a>
                     <a href="#Best_categories">Europian</a>
-                    <a href="#">Ivory coast</a>
+                    <a href="#">Back to top</a>
                 </div>
             </aside>
             <section class="main_containt resturant-main">

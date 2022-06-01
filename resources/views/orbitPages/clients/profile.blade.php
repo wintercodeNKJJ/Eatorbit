@@ -95,7 +95,7 @@
                                     @if ($command->status == 'good')
                                         <!-- item 1 -->
                                         <div class="item">
-                                            <img src="./pics/dish.jpeg" class="item_image">
+                                            <img src="{{ asset('images/dishes/'. $command->menu->meal->profile .'.jpeg') }}" class="item_image">
                                             <div class="item_description">
                                                 <div class="item_name">
                                                     <h2>{{ $command->menu->meal->name }}</h2>
@@ -127,7 +127,7 @@
                                 @if ($reserve->status == 'good')
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/restimage/'. $reserve->restaurant->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $reserve->restaurant->name }}</h2>
@@ -159,7 +159,7 @@
                                 @if ($reserve->status == 'complited')
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/restimage/'. $reserve->restaurant->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $reserve->restaurant->name }}</h2>
@@ -190,7 +190,7 @@
                                     @if ($command->status == 'complited')
                                         <!-- item 1 -->
                                         <div class="item">
-                                            <img src="./pics/dish.jpeg" class="item_image">
+                                            <img src="{{ asset('images/dishes/'. $command->menu->meal->profile .'.jpeg') }}" class="item_image">
                                             <div class="item_description">
                                                 <div class="item_name">
                                                     <h2>{{ $command->menu->meal->name }}</h2>

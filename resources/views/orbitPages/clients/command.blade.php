@@ -43,7 +43,7 @@
 
         <div class="command-main-pos">
             <div class="citem">
-                <img src="./dishes/jpeg(6).jpeg" class="citem_image">
+                <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="citem_image">
                 <div class="citem_description">
                     <div class="citem_name">
                         <h2>{{ $menu->meal->name }}</h2>

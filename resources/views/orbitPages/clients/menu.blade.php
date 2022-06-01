@@ -81,7 +81,7 @@
                                     @if ($menu->price >= 5000)
                                         <!-- item 1 -->
                                         <div class="item">
-                                            <img src="./pics/dish.jpeg" class="item_image">
+                                            <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                             <div class="item_description">
                                                 <div class="item_name">
                                                     <h2>{{ $menu->meal->name }}</h2>
@@ -111,7 +111,7 @@
                                 @if ($menu->price >= 3000 && $menu->price < 5000)
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $menu->meal->name }}</h2>
@@ -142,7 +142,7 @@
                                 @if ($menu->price >= 0 && $menu->price < 3000)
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $menu->meal->name }}</h2>

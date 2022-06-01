@@ -38,9 +38,7 @@
 
         <!-- showing head containing the reservation part -->
 
-            @if (Request::is('profile')==true)
-                <img class="profile-im2" src="{{ asset('images/clients/1653854118pppp.jpg') }}" alt="none">
-            @endif
+            <img class="profile-im2" style="display: {{ Request::is('profile') ? '' : 'none' }};" src="{{ asset('images/clients/'.$client->profilePicture.'.jpeg') }}" alt="none">
 
             <div class="{{ Request::is('profile') ? 'middle-profile' : 'middle' }}">
                 <h1>{{ Request::is('restaurant') ? 'THE BEST RESTAURANTS' : '' }}

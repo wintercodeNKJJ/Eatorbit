@@ -7,7 +7,7 @@
                 <div class="sidelinks">
                     <a href="#Best_Dishes">Best Dishes</a>
                     <a href="#Best_Restaurants">Best Restaurants</a>
-                    <a href="#Best_Items">Best Items</a>
+                    <a href="#Best_categories">Best Items</a>
                     <a href="#">New Dishes</a>
                 </div>
             </aside>

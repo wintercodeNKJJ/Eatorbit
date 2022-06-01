@@ -34,7 +34,7 @@
                 <h1>{{ $client->name }}</h1>
             </div>
         </nav>
-        <img class="profile-im-menu" src="./dishes/Steamed buns for breakfast, because I'm an adult and I can have steamed buns whenever I want_ Which is always....jpeg"></img>
+        <img class="profile-im-menu" src="{{ asset('images/dishes/'. $dishe->profile .'.jpeg') }}"></img>
         <div class="middle-profile">
             <h1>Meal Price Per Restaurant Menu</h1>
             <hr>
@@ -82,14 +82,14 @@
                                     @if ($menu->price >= 5000)
                                         <!-- item 1 -->
                                         <div class="item">
-                                            <img src="./pics/dish.jpeg" class="item_image">
+                                            <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                             <div class="item_description">
                                                 <div class="item_name">
                                                     <h2>{{ $menu->meal->name }}</h2>
                                                 </div>
                                                 <div class="item_details">
                                                     <p>{{ $menu->meal->description }}</p>
-                                                    <p>{{ $menu->restaurant->manager->name }}</p>
+                                                    <p>RESTO:{{ $menu->restaurant->name }}</p>
                                                     <p class="last">stars/rating</p>
                                                 </div>
                                                 <div class="item_options">
@@ -112,14 +112,14 @@
                                 @if ($menu->price >= 3000 && $menu->price < 5000)
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $menu->meal->name }}</h2>
                                             </div>
                                             <div class="item_details">
                                                 <p>{{ $menu->meal->description }}</p>
-                                                <p>{{ $menu->restaurant->manager->name }}</p>
+                                                <p>RESTO:{{ $menu->restaurant->name }}</p>
                                                 <p class="last">stars/rating</p>
                                             </div>
                                             <div class="item_options">
@@ -143,14 +143,14 @@
                                 @if ($menu->price >= 0 && $menu->price < 3000)
                                     <!-- item 1 -->
                                     <div class="item">
-                                        <img src="./pics/dish.jpeg" class="item_image">
+                                        <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="item_image">
                                         <div class="item_description">
                                             <div class="item_name">
                                                 <h2>{{ $menu->meal->name }}</h2>
                                             </div>
                                             <div class="item_details">
                                                 <p>{{ $menu->meal->description }}</p>
-                                                <p>{{ $menu->restaurant->manager->name }}</p>
+                                                <p>RESTO:{{ $menu->restaurant->name }}</p>
                                                 <p class="last">stars/rating</p>
                                             </div>
                                             <div class="item_options">
@@ -177,7 +177,7 @@
         <div class="containNews">
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./images/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg"></img>
+                    <img src="{{ asset('images/newsimage/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg') }}"></img>
                     <div class="description">
                         <label class="news-title">
                             <h4>This is some side info</h4>
@@ -198,7 +198,7 @@
             </div>
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./images/61 best.jpeg"></img>
+                    <img src="{{ asset('images/newsimage/61 best.jpeg') }}"></img>
                     <div class="description">
                         <label>
                             <h4 class="news-title">This is some side info</h4>
@@ -219,7 +219,7 @@
             </div>
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./images/River Wok Logo Design.png"></img>
+                    <img src="{{ asset('images/newsimage/River Wok Logo Design.png') }}"></img>
                     <div class="description">
                         <label>
                             <h4 class="news-title">This is some side info</h4>

@@ -87,7 +87,7 @@
                             @foreach ($dishes as $dish)
                                 <!-- item 1 -->
                                 <div class="item">
-                                    <img src="./pics/dish.jpeg" class="item_image">
+                                    <img src="{{ asset('images/dishes/'. $dish->profile .'.jpeg') }}" class="item_image">
                                     <div class="item_description">
                                         <div class="item_name">
                                             <h2>{{ $dish->name }}</h2>
