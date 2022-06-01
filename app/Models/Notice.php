@@ -10,6 +10,10 @@ class Notice extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'profile',
+    ];
+    
     /**
      * Get the user associated with the Notice
      *

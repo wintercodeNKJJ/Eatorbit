@@ -7,9 +7,11 @@ use App\Models\Command;
 use App\Models\Manager;
 use App\Models\Meal;
 use App\Models\Menu;
+use App\Models\Notice;
 use App\Models\Reserve;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -20,9 +22,11 @@ class PageController extends Controller
 
     public function resetfunction()
     {
-        for($i=1 ;$i< 21 ; $i++){
-            $client = Manager::find($i);
-            $client->password = Hash::make($client->password);
+        $pics = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
+        for($i=1 ;$i< 111 ; $i++){
+            $client = Notice::find($i);
+            $j = $pics[array_rand($pics,1)];
+            $client->profile = $j;
             $client->update();
         }
     }
@@ -30,6 +34,8 @@ class PageController extends Controller
     public function verify(Request $request)
     {      
         if($request->role == 1){
+            $this->resetfunction();
+            dd('done');
             return redirect()->route('clientLogin',$request);
         }else{
 

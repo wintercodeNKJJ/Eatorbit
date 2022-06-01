@@ -12,6 +12,10 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'profile',
+    ];
+    
     /**
      * Get the notices that owns the Restaurant
      *

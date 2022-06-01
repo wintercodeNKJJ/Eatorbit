@@ -14,7 +14,7 @@
     <header class="command-img-header">
         <nav>
             <div class="nav_page_icon">
-                <a id="page_icon" href="./home_page.html"></a>
+                <a id="page_icon" href="{{ route('manager.home') }}"></a>
                 <!-- <h3>EatOrbit</h3> -->
             </div>
             <div class="nav_buttons">
@@ -22,11 +22,8 @@
                     <h3>Good Food</h3>
                 </div>
                 <div class="buttons">
-                    <a href="./home_page.html">Home</a>
-                    <a href="./restaurants.html">Restaurant</a>
-                    <a href="./dishes.html" class="current-page">Dishes</a>
-                    <a href="./profile.html">Profile</a>
-                    <a href="./login.html">Logout</a>
+                    <a href="{{ route('manager.home') }}" class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
+                    <a href="{{ route('managerlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">

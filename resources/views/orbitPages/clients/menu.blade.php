@@ -26,7 +26,7 @@
                     <a href="{{ route('home.restaurant') }}" class="current-page">Restaurant</a>
                     <a href="{{ route('home.dishes') }}">Dishes</a>
                     <a href="{{ route('home.profile') }}" >Profile</a>
-                    <a href="./login.html">Logout</a>
+                    <a href="{{ route('clientlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">

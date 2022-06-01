@@ -14,7 +14,7 @@
     <header class="command-img-header">
         <nav>
             <div class="nav_page_icon">
-                <a id="page_icon" href="./home_page.html"></a>
+                <a id="page_icon" href="{{ route('manager.home') }}"></a>
                 <!-- <h3>EatOrbit</h3> -->
             </div>
             <div class="nav_buttons">

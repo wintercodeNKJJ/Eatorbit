@@ -14,7 +14,7 @@
     <header class="command-img-header">
         <nav>
             <div class="nav_page_icon">
-                <a id="page_icon" href="./home_page.html"></a>
+                <a id="page_icon" href="{{ route('manager.home') }}"></a>
                 <!-- <h3>EatOrbit</h3> -->
             </div>
             <div class="nav_buttons">
@@ -22,11 +22,9 @@
                     <h3>Good Food</h3>
                 </div>
                 <div class="buttons">
-                    <a href="./home_page.html">Home</a>
-                    <a href="./restaurants.html">Restaurant</a>
-                    <a href="./dishes.html" class="current-page">Dishes</a>
-                    <a href="./profile.html">Profile</a>
-                    <a href="./login.html">Logout</a>
+                    <a href="{{ route('manager.home') }}"
+                        class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
+                    <a href="{{ route('managerlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">
@@ -45,22 +43,23 @@
                 <div class="citem">
                     <img src="./restimage/Premium Vector Retro restaurant logo.jpeg" class="citem_image">
                     <div class="citem_description">
+                        
                         <div class="citem_name">
-                            <h2>Dish name</h2>
+                            <h2>Restaurant name</h2>
                         </div>
                         <div class="citem_details">
                             <div class="citem_info">
                                 <label for="im" style="font-family: Arial, Helvetica, sans-serif;">Change
-                                    inmage:</label>
-                                <input type="file" name="im"><br><br>
-                                <label style="font-family: Arial, Helvetica, sans-serif;">Plate description:</label>
+                                    image:</label>
+                                <input type="file" name="im" id="images"><br><br>
+                                <label style="font-family: Arial, Helvetica, sans-serif;">Restaurant description:</label>
                                 <br>
                                 <textarea style="width: 250px; height: 100px;"></textarea>
                             </div>
                             <div class="citem_input">
                                 <div class="cform">
                                     <div class="cinput-group">
-                                        <label class="naming">Meal name:</label>
+                                        <label class="naming">Restaurant name:</label>
                                         <input type="text" name="name" id="name" placeholder="Name" readonly="readonly">
                                     </div>
                                     <div class="cinput-group">
@@ -75,6 +74,27 @@
                                         <button name="command" id="cplt_command">Command</button>
                                         <button name="visit_plates" id="cplt_visit">Cancel</button>
                                     </div>
+                                    {{-- <script>
+                                        $(function() {
+                                            // Multiple images preview with JavaScript
+                                            var previewImages = function(input, imgPreviewPlaceholder) {
+                                                if (input.files) {
+                                                    var filesAmount = input.files.length;
+                                                    for (i = 0; i < filesAmount; i++) {
+                                                        var reader = new FileReader();
+                                                        reader.onload = function(event) {
+                                                            $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(
+                                                                imgPreviewPlaceholder);
+                                                        }
+                                                        reader.readAsDataURL(input.files[i]);
+                                                    }
+                                                }
+                                            };
+                                            $('#images').on('change', function() {
+                                                previewImages(this, 'div.citem_image');
+                                            });
+                                        });
+                                    </script> --}}
                                 </div>
                             </div>
                         </div>

@@ -11,6 +11,9 @@ class Meal extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'profile',
+    ];
     /**
      * The Restaurants that belong to the Meal
      *
