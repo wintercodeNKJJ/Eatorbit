@@ -32,7 +32,11 @@ class PageController extends Controller
         if($request->role == 1){
             return redirect()->route('clientLogin',$request);
         }else{
-            return view('orbitPages.manager.1manager');
+            $manager = Manager::find(18);
+            $restaurants = null;
+            $Menu = Restaurant::find($request->id);
+            //dd($manager->restaurants[0]->menus);
+            return view('orbitPages.manager.1manager',compact('manager','Menu','restaurants'));
             return redirect()->route('managerLogin',$request);
         }
     }
@@ -232,5 +236,68 @@ class PageController extends Controller
     public function managerLogin()
     {
         return view('orbitPages.manager.1manager');
+    }
+
+    //restaurant reservations
+    public function reserves(Request $request)
+    {   
+        $manager = Manager::find(18);
+        $restaurants = Restaurant::find($request->id);
+        return view('orbitPages.manager.1manager',compact('manager','restaurants'));
+    }
+
+    public function retaurantmenu(Request $request)
+    {   
+        $manager = Manager::find(18);
+        $Menu = Restaurant::find($request->id);
+        return view('orbitPages.manager.1manager',compact('manager','Menu'));
+    }
+
+    public function restauranredit(Request $request)
+    {   
+        $manager = Manager::find(18);
+        $restaurants = Restaurant::find($request->id);
+        return view('orbitPages.manager.1editrestaurant',compact('manager','restaurants'));
+    }
+
+    public function restaurantdelet(Request $request)
+    {   
+        Manager::find($request->id)->delet();
+        return view('orbitPages.manager.1manager',compact('manager'));
+    }
+
+    public function addRestaurant(Request $request)
+    {
+        return view('orbitPages.manager.1addrestaurant');
+    }
+
+    public function restauranreditdish(Request $request)
+    {
+        $dish = Meal::find($request->id);
+        return view('orbitPages.manager.1editdish',compact('dish'));
+    }
+
+    public function restaurantdeletdish(Request $request)
+    {
+        Menu::where('id',$request->id)->delete();
+        return redirect()->route('manager.home');
+    }
+
+    public function restaurantdeletreserv(Request $request)
+    {
+        Reserve::find($request->id)->delete();
+    }
+
+    public function managerhome(Request $request)
+    {
+        $manager = Manager::find(18);
+        $Menu = Restaurant::find($request->id);
+        return view('orbitPages.manager.1manager',compact('Menu','manager'));
+    }
+    
+    
+    public function addMeal()
+    {
+        return view('orbitPages.manager.1adddish');
     }
 }

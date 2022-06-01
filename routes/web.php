@@ -49,10 +49,8 @@ Route::get('/login/client/verify', [AuthClientController::class,'clientLogin'])-
 Route::get('/login/Register/verify', [AuthClientController::class,'clientRegister'])->name('clientRegister');
 
 //Client logout route
-Route::get('/logout', [AuthClientController::class,'clientlogout'])->name('clientlogout');
+Route::get('/logout/client', [AuthClientController::class,'clientlogout'])->name('clientlogout');
 
-//Manager login route
-Route::get('/login/manager/verify', [AuthManagerController::class,'managerLogin'])->name('managerLogin');
 
 
 Route::name('door.')->group( function(){
@@ -78,9 +76,30 @@ Route::middleware('auth.client')->name('home.')->group(function(){
 });
 
 
-Route::middleware('auth.manager')->name('manager.')->group(function () {
+///////////////////////////////////////////////////////////////////////
+
+//Manager login route
+Route::get('/login/manager/verify', [AuthManagerController::class,'managerLogin'])->name('managerLogin');
+
+//Client logout route
+Route::get('/logout/manager', [AuthManagerController::class,'managerlogout'])->name('managerlogout');
+
+//middleware('auth.manager')
+
+Route::name('manager.')->group(function () {
     Route::get('/Mhome',[PageController::class, 'managerhome'] )->name('home');
+    Route::post('/reserves',[PageController::class, 'reserves'] )->name('reserves');
+    Route::post('/retaurantMenu',[PageController::class, 'retaurantmenu'] )->name('menu');
+    Route::post('/restaurantEdit',[PageController::class, 'restauranredit'] )->name('edit');
+    Route::post('/restaurantDelet',[PageController::class, 'restaurantdelet'] )->name('delet');
+    Route::post('/restaurantAdd',[PageController::class, 'addRestaurant'] )->name('addr');
+    Route::post('/restaurantEditdish',[PageController::class, 'restauranreditdish'] )->name('editdish');
+    Route::post('/restaurantDeletdish',[PageController::class, 'restaurantdeletdish'] )->name('deletdish');
+    Route::post('/restaurantReserve',[PageController::class, 'restaurantdeletreserv'] )->name('deletreserve');
+    Route::post('/restaurantMeal',[PageController::class, 'addMeal'] )->name('addmeal');
 });
+
+//addmeal
 
 // Route::prefix('info')->name('info.')->group(function(){
 //     Route::get('/buy',[ClientController::class, 'buy'] )->name('buy');

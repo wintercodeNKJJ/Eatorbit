@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./styles/disposition.css" rel="stylesheet" type="text/css" />
-    <link href="./styleslogin.css" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/styleslogin.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/disposition.css') }}" type="text/css" rel="stylesheet">
     <title>Document</title>
 </head>
 
@@ -22,15 +22,12 @@
                     <h3>Good Food</h3>
                 </div>
                 <div class="buttons">
-                    <a href="./home_page.html">Home</a>
-                    <a href="./restaurants.html">Restaurant</a>
-                    <a href="./dishes.html" class="current-page">Dishes</a>
-                    <a href="./profile.html">Profile</a>
-                    <a href="./login.html">Logout</a>
+                    <a href="{{ route('manager.home') }}" class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
+                    <a href="{{ route('managerlogout') }}">Logout</a>
                 </div>
             </div>
             <div class="nav_search_bar">
-                <input type="text" placeholder="Search">
+                <h1>{{ $manager->name }}</h1>
             </div>
         </nav>
         <div class="header_background"></div>

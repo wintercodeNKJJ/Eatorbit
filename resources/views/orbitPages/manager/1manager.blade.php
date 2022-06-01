@@ -22,23 +22,21 @@
                         <h3>Good Food</h3>
                     </div>
                     <div class="buttons">
-                        <a href="./home_page.html">Manager Home</a>
-                        <a href="./login.html">Logout</a>
+                        <a href="{{ route('manager.home') }}" class="{{ Request::is('Mhome') ? 'current-page' : '' }}">Manager Home</a>
+                        <a href="{{ route('managerlogout') }}">Logout</a>
                     </div>
                 </div>
                 <div class="nav_search_bar">
-                    <input type="text" placeholder="Search">
+                    <h1>{{ $manager->name }}</h1>
                 </div>
             </nav>
             <img class="profile-im2" src="{{ asset('images/clients/1653854118pp.jpg') }}">
             <div class="middle-profile">
-                <h1>Jordan Junior</h1>
+                <h1>{{ $manager->name }}</h1>
                 <hr>
-                <p>Profile info</p>
-                <h2>Adress</h2>
-                <h2>Email</h2>
-                <h2>Number</h2>
-                <h2>payment mode</h2>
+                <p>{{ $manager->email }}</p>
+                <h2>{{ $manager->address }}</h2>
+                <h2>{{ $manager->phone }}</h2>
             </div>
     
         </header>
@@ -55,114 +53,70 @@
                 </aside>
                 <section class="main_containt home-main">
 
+                    <div class="item_title">
+                        <h1>Your Restaurants</h1>
+                    </div>
                     <!-- best dishes aticles -->
                     <article id="Best_Dishes">
-                        <div class="item_title">
-                            <h1>Best Dishes</h1>
-                        </div>
 
-                        <!-- item 1 -->
+                        @forelse ($manager->restaurants as $restaurant )
+                            <!-- item 1 -->
                         <div class="item">
                             <img src="./images/Premium Vector Retro restaurant logo.jpeg" class="item_image">
                             <div class="item_description">
                                 <div class="item_name">
-                                    <h2>Authentic dail good</h2>
+                                    <h2>{{ $restaurant->name }}</h2>
                                 </div>
                                 <div class="item_details">
-                                    <p>it a restaurant descroption</p>
-                                    <p>Restaurant capacity</p>
-                                    <p class="last">stars/rating</p>
+                                    <p>{{ $restaurant->location }}</p>
+                                    <p>{{ $restaurant->name }}</p>
+                                    <p class="last">{{ $restaurant->openHour }}hr</p>
                                 </div>
                                 <div class="item_options">
                                     <h3>4.3</h3>
-                                    <form action="./reservation.html">
-                                        <button name="command" id="plt_command">Reserve</button>
+                                    <form method="POST" action="{{ route('manager.reserves') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $restaurant->id }}">
+                                        <button type="submit" name="command" id="plt_command">Reserve</button>
                                     </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Menu</button>
+                                    <form method="POST" action="{{ route('manager.menu') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $restaurant->id }}">
+                                        <button type="submit" name="visit_plates" id="plt_visit">Menu</button>
                                     </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Delet</button>
+                                    <form method="POST" action="{{ route('manager.delet') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $restaurant->id }}">
+                                        <button type="submit" name="visit_plates" id="plt_visit">Delet</button>
                                     </form>
-                                    <form action="./1editrestaurant.html">
-                                        <button name="visit_plates" id="plt_visit">eddit</button>
+                                    <form method="POST" action="{{ route('manager.edit') }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $restaurant->id }}">
+                                        <button type="submit" name="visit_plates" id="plt_visit">eddit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                        @empty
+                            <div class="item_title">
+                                <h1>NO RESTAUARNTS</h1>
+                            </div>
+                        @endforelse
 
-                        <!-- item 2 -->
-                        <div class="item">
-                            <img src="./images/Fresh Food Logo Template Download on Pngtree.jpeg" class="item_image">
-                            <div class="item_description">
-                                <div class="item_name">
-                                    <h2>Fresh Food</h2>
-                                </div>
-                                <div class="item_details">
-                                    <p>it a restaurant descroption</p>
-                                    <p>Restaurant capacity</p>
-                                    <p class="last">stars/rating</p>
-                                </div>
-                                <div class="item_options">
-                                    <h3>4.3</h3>
-                                    <form action="./reservation.html">
-                                        <button name="command" id="plt_command">Reserve</button>
-                                    </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Menu</button>
-                                    </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Delet</button>
-                                    </form>
-                                    <form action="./1editrestaurant.html">
-                                        <button name="visit_plates" id="plt_visit">eddit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- item 3 -->
-                        <div class="item">
-                            <img src="./images/Premium Vector Vintage retro rustic old skillet cast iron for traditional food dish cuisine classic restaurant kitchen logo design.jpeg" class="item_image">
-                            <div class="item_description">
-                                <div class="item_name">
-                                    <h2>Rustic Family</h2>
-                                </div>
-                                <div class="item_details">
-                                    <p>it a restaurant descroption</p>
-                                    <p>Restaurant capacity</p>
-                                    <p class="last">stars/rating</p>
-                                </div>
-                                <div class="item_options">
-                                    <h3>4.3</h3>
-                                    <form action="./reservation.html">
-                                        <button name="command" id="plt_command">Reserve</button>
-                                    </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Menu</button>
-                                    </form>
-                                    <form action="./menu.html">
-                                        <button name="visit_plates" id="plt_visit">Delet</button>
-                                    </form>
-                                    <form action="./1editrestaurant.html">
-                                        <button name="visit_plates" id="plt_visit">eddit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </article>
                     <div class="dish-Add">
-                        <form action="./1addrestaurant.html">
-                            <button>Add Restaurant</button>
+                        <form method="POST" action="{{ route('manager.addr') }}">
+                            @csrf
+                            <button type="submit">Add Restaurant</button>
                         </form>
                     </div>
 
-                    <article id="Best_Dishes" class="dishes">
-                        <div class="item_title">
-                            <h1>Menu</h1>
-                        </div>
+                    <div class="item_title">
+                        <h1>Menu or Reservations</h1>
+                    </div>
+                    <article id="Best_Dishes" class="dishes listedRM">
 
-                        <div class="resMenuitem">
+                        {{-- <div class="resMenuitem">
                             <img src="./dishes/Product Details.jpeg" class="resMenu_image">
                             <div class="dish_description">
                                 <div class="dish_name">
@@ -184,11 +138,105 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
+                        @if(!isset($Menu)||!isset($restaurants))
+                            @if(isset($Menu))
+                                @foreach ($Menu->menus as $menu)
+                                    <div class="resMenuitem">
+                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <div class="dish_description">
+                                            <div class="dish_name">
+                                                <h2>{{ $menu->meal->name }}</h2>
+                                                <div class="dish_details">
+                                                    <p>{{ $menu->meal->description }}</p>
+                                                    <!-- <p># of people</p>
+                                                    <p class="last">stars/rating</p> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="dish_options">
+                                                <h3>{{ $menu->price }}$</h3>
+                                                <form method="POST" action="{{ route('manager.editdish') }}">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                    <button id="plt_command">Edit dish</button>
+                                                </form>
+
+                                                <form method="POST" action="{{ route('manager.deletdish') }}">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                    <button id="plt_visit">Delet Dishes</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+
+                            @if(isset($restaurants))
+                                @foreach ($restaurants->reserves as $reserve)
+                                    <div class="resMenuitem">
+                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <div class="dish_description">
+                                            <div class="dish_name">
+                                                <h2>{{ $reserve->client->name }}</h2>
+                                                <div class="dish_details">
+                                                    <p>{{ $reserve->client->address }}</p>
+                                                    <!-- <p># of people</p>
+                                                    <p class="last">stars/rating</p> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="dish_options">
+                                                <h3>{{ $reserve->cost }}$</h3>
+                                                <form method="POST" action="{{ route('manager.deletreserve') }}">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $reserve->id }}">
+                                                    <button name="visit_plates" id="plt_visit">Delet reserve</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                @foreach ($manager->restaurants[0]->menus as $menu)
+                                <div class="resMenuitem">
+                                    <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                    <div class="dish_description">
+                                        <div class="dish_name">
+                                            <h2>{{ $menu->meal->name }}</h2>
+                                            <div class="dish_details">
+                                                <p>{{ $menu->meal->description }}</p>
+                                                <!-- <p># of people</p>
+                                                <p class="last">stars/rating</p> -->
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="dish_options">
+                                            <h3>{{ $menu->price }}FCFA</h3>
+                                            <form method="POST" action="{{ route('manager.editdish') }}">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                <button name="command" id="plt_command">Edit dish</button>
+                                            </form>
+                                            <form method="POST" action="{{ route('manager.deletdish') }}">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $menu->id }}">
+                                                <button name="visit_plates" id="plt_visit">Delet dish</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            @endif
+                        @endif
+
                     </article>
 
                     <div class="dish-Add">
-                        <form action="./1adddish.html">
+                        <form method="POST" action="{{ route('manager.addmeal') }}">
+                            @csrf
                             <button>Add Meal</button>
                         </form>
                         <form>
@@ -223,7 +271,7 @@
             </div>
             <div class="news-box">
                 <div class="top-description">
-                    <img src="./newsimage/61 best.jpeg"></img>
+                    <img src="./newsimage/61 best.jpeg">
                     <div class="description">
                         <label>
                             <h4 class="news-title">This is some side info</h4>
