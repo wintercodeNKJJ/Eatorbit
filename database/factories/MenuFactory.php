@@ -27,4 +27,5 @@ class MenuFactory extends Factory
             'price' => $this->faker->randomNumber(4),
         ];
     }
+
 }

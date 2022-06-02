@@ -35,7 +35,7 @@
                             </div>
                         @endif
                         <div class="input-group">
-                            <label>name</label>
+                            <label>Email</label>
                             <input type="email" name="email" id="name" placeholder="user email">
                         </div>
                         <div class="input-group">

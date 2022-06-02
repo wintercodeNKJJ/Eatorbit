@@ -30,7 +30,7 @@
                     <h1>{{ $manager->name }}</h1>
                 </div>
             </nav>
-            <img class="profile-im2" src="{{ asset('images/clients/1653854118pp.jpg') }}">
+            <img class="profile-im2" src="{{ asset('images/managers/'.$manager->profilePicture.'.jpeg') }}">
             <div class="middle-profile">
                 <h1>{{ $manager->name }}</h1>
                 <hr>
@@ -140,14 +140,14 @@
                             </div>
                         </div> --}}
 
-                        @if(!isset($Menu)||!isset($restaurants))
+                        @if(isset($Menu)||isset($restaurants))
                             @if(isset($Menu))
                                 @foreach ($Menu->menus as $menu)
                                     <div class="resMenuitem">
                                         <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
-                                                <h2>{{ $menu->meal->name }}</h2>
+                                                <h2>name:{{ $menu->meal->name }}</h2>
                                                 <div class="dish_details">
                                                     <p>{{ $menu->meal->description }}</p>
                                                     <!-- <p># of people</p>
@@ -177,12 +177,12 @@
                             @if(isset($restaurants))
                                 @foreach ($restaurants->reserves as $reserve)
                                     <div class="resMenuitem">
-                                        <img src="./dishes/Product Details.jpeg" class="resMenu_image">
+                                        <img src="{{ asset('images/clients/'. $reserve->client->profilePicture .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
-                                                <h2>{{ $reserve->client->name }}</h2>
+                                                <h2>{{ $reserve->client->profilePicture }}{{ $reserve->client->name }}</h2>
                                                 <div class="dish_details">
-                                                    <p>{{ $reserve->client->address }}</p>
+                                                    <p>address:{{ $reserve->client->address }}</p>
                                                     <!-- <p># of people</p>
                                                     <p class="last">stars/rating</p> -->
                                                 </div>
@@ -206,9 +206,9 @@
                                         <img src="{{ asset('images/dishes/'. $menu->meal->profile .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
-                                                <h2>{{ $menu->meal->name }}</h2>
+                                                <h2>name:{{ $menu->meal->name }}</h2>
                                                 <div class="dish_details">
-                                                    <p>{{ $menu->meal->description }}OOpo{{ $menu->meal->profile }}</p>
+                                                    <p>{{ $menu->meal->description }}</p>
                                                     <!-- <p># of people</p>
                                                     <p class="last">stars/rating</p> -->
                                                 </div>
@@ -241,13 +241,15 @@
                     </article>
 
                     <div class="dish-Add">
+                        <!-- permits to add a dish to a particular restaurant -->
                         <form method="POST" action="{{ route('manager.addmeal') }}">
                             @csrf
+                            <input value="{{ (isset($Menu)) ? $Menu->id : '' }}" type="hidden" name="id">
                             <button>Add Meal</button>
                         </form>
-                        <form>
+                        {{-- <form>
                             <button>Select</button>
-                        </form>
+                        </form> --}}
                     </div>
                     
                 </section>

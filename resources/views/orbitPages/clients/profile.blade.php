@@ -102,8 +102,8 @@
                                                 </div>
                                                 <div class="item_details">
                                                     <p>{{ $command->menu->meal->description }}</p>
-                                                    <p>{{ $command->menu->restaurant->manager->name }}</p>
-                                                    <p class="last">stars/rating</p>
+                                                    <p>Restaurant:<br>{{ $command->menu->restaurant->name }}</p>
+                                                    <p class="last">stars/rating {{ $command->menu->restaurant->manager->id }}</p>
                                                 </div>
                                                 <div class="item_options">
                                                     <h3>{{ $command->menu->price }}FCFA</h3>
@@ -134,8 +134,8 @@
                                             </div>
                                             <div class="item_details">
                                                 <p>{{ $reserve->restaurant->location }}</p>
-                                                <p>{{ $reserve->restaurant->manager->name }}</p>
-                                                <p class="last">stars/rating</p>
+                                                <p>Restaurant:<br>{{ $reserve->restaurant->name }}</p>
+                                                <p class="last">stars/rating{{ $reserve->restaurant->manager->id }}</p>
                                             </div>
                                             <div class="item_options">
                                                 <h3>{{ $reserve->cost }}FCFA</h3>
@@ -166,8 +166,8 @@
                                             </div>
                                             <div class="item_details">
                                                 <p>{{ $reserve->restaurant->location }}</p>
-                                                <p>{{ $reserve->restaurant->manager->name }}</p>
-                                                <p class="last">stars/rating</p>
+                                                <p>Restaurant:<br>{{ $reserve->restaurant->name }}</p>
+                                                <p class="last">stars/rating{{ $reserve->restaurant->manager->id }}</p>
                                             </div>
                                             <div class="item_options">
                                                 <h3>{{ $reserve->cost }}FCFA</h3>
@@ -197,8 +197,8 @@
                                                 </div>
                                                 <div class="item_details">
                                                     <p>{{ $command->menu->meal->description }}</p>
-                                                    <p>{{ $command->menu->restaurant->manager->name }}</p>
-                                                    <p class="last">stars/rating</p>
+                                                    <p>Restaurant: <br> {{ $command->menu->restaurant->name }}</p>
+                                                    <p class="last">stars/rating{{ $command->menu->restaurant->manager->id }}</p>
                                                 </div>
                                                 <div class="item_options">
                                                     <h3>{{ $command->menu->price }}FCFA</h3>

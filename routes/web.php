@@ -84,7 +84,7 @@ Route::get('/logout/manager', [AuthManagerController::class,'managerlogout'])->n
 Route::middleware('auth.manager')->name('manager.')->group(function () {
     Route::get('/Mhome',[PageController::class, 'managerhome'] )->name('home');
     Route::post('/reserves',[PageController::class, 'reserves'] )->name('reserves');
-    Route::post('/retaurantMenu',[PageController::class, 'retaurantmenu'] )->name('menu');
+    Route::post('/retaurantMenu',[PageController::class, 'restaurantmenu'] )->name('menu');
     Route::post('/restaurantEdit',[PageController::class, 'restauranredit'] )->name('edit');
     Route::post('/restaurantDelet',[PageController::class, 'restaurantdelet'] )->name('delet');
     Route::post('/restaurantAdd',[PageController::class, 'addRestaurant'] )->name('addr');

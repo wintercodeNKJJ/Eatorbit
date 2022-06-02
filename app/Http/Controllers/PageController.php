@@ -64,6 +64,7 @@ class PageController extends Controller
                 //dd($request);
         
                 $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
+                dd($request);
                 $request->profilePicture->move(public_path('images/clients'),$newImageName);
                 
                 //dd($request);
@@ -258,9 +259,9 @@ class PageController extends Controller
         return view('orbitPages.manager.1manager',compact('manager','restaurants'));
     }
 
-    public function retaurantmenu(Request $request)
+    public function restaurantmenu(Request $request)
     {   
-        $manager = Auth::guard('manager')->user();;
+        $manager = Auth::guard('manager')->user();
         $Menu = Restaurant::find($request->id);
         return view('orbitPages.manager.1manager',compact('manager','Menu'));
     }
@@ -297,11 +298,21 @@ class PageController extends Controller
         return redirect()->route('manager.home');
     }
 
+    /**
+     * permits a manager to deletes a reservation made by a client in restaurant
+     * @param request contains the resrvation id
+     * searches the resrvation and deletes it
+     */
     public function restaurantdeletreserv(Request $request)
     {
         Reserve::find($request->id)->delete();
+        return redirect()->route('manager.home');
     }
 
+    /**
+     * sends us to the manager home view with or without a restaurant menu to show
+     * @param request shold contain thre restaurant id
+     */
     public function managerhome(Request $request)
     {
         $manager = Auth::guard('manager')->user();
@@ -309,8 +320,11 @@ class PageController extends Controller
         return view('orbitPages.manager.1manager',compact('Menu','manager'));
     }
     
-    
-    public function addMeal()
+    /**
+     * permites a manager to add a meal to a particular restaurant
+     * @param request contains the informations related to the specific restaurant
+     */
+    public function addMeal(Request $request)
     {
         return view('orbitPages.manager.1adddish');
     }

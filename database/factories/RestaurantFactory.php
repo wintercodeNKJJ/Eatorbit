@@ -20,11 +20,13 @@ class RestaurantFactory extends Factory
     {
         $mid = Manager::pluck('id')->toArray();
         $nid = Notice::pluck('id')->toArray();
+        $pics = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
         return [
             'name' => $this->faker->firstName(),
             'location' => $this->faker->address(),
             'managers_id' => $this->faker->randomElement($mid), 
-            'notices_id' => $this->faker->randomElement($nid)
+            'notices_id' => $this->faker->randomElement($nid),
+            'profile' => $this->faker->randomElement($pics)
         ];
     }
 }
