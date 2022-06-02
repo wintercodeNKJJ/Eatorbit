@@ -47,7 +47,7 @@
                     {{ Request::is('home') ? 'DELICIOUSLY GOOD' : '' }}
                 </h1>
                 <hr>
-                <p>{{ Request::is('restaurant') ? 'Profile info' : '' }}
+                <p>{{ Request::is('restaurant') ? 'The best restaurants' : '' }}
                     {{ Request::is('dishes') ? 'Enjoy your meal' : '' }}
                     {{ Request::is('profile') ? 'Take a look' : '' }}
                     {{ Request::is('home') ? 'welcome' : '' }}

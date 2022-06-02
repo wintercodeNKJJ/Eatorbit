@@ -79,7 +79,7 @@
     <div class="containNews">
         <div class="news-box">
             <div class="top-description">
-                <img src="./images/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg"></img>
+                <img src="{{ asset('images/newsimage/Keto Delivered - Artisan Goodies for Keto Foodies.jpeg') }}"></img>
                 <div class="description">
                     <label class="news-title">
                         <h4>This is some side info</h4>
@@ -100,7 +100,7 @@
         </div>
         <div class="news-box">
             <div class="top-description">
-                <img src="./images/61 best.jpeg"></img>
+                <img src="{{ asset('images/newsimage/61 best.jpeg') }}"></img>
                 <div class="description">
                     <label>
                         <h4 class="news-title">This is some side info</h4>
@@ -121,7 +121,7 @@
         </div>
         <div class="news-box">
             <div class="top-description">
-                <img src="./images/River Wok Logo Design.png"></img>
+                <img src="{{ asset('images/newsimage/River Wok Logo Design.png') }}"></img>
                 <div class="description">
                     <label>
                         <h4 class="news-title">This is some side info</h4>
