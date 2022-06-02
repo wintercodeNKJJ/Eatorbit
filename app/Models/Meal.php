@@ -13,6 +13,8 @@ class Meal extends Model
     
     protected $fillable = [
         'profile',
+        'name',
+        'description'
     ];
     /**
      * The Restaurants that belong to the Meal

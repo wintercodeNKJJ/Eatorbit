@@ -49,6 +49,10 @@ class PageController extends Controller
         }
     }
 
+    /**
+     * permites the registration of either a client or a manager
+     * @param request should contain the user or manager to be created
+     */
     public function verifyRegister(Request $request)
     {      
         if($request->role == 1){
@@ -58,18 +62,22 @@ class PageController extends Controller
                     'password' => 'required',
                     'address' => 'required',
                     'phone' => 'required',
-                    'profilePicture' => 'required|image|mimes:png,jpg|max:5048',
+                    'profilePicture' => 'required|image|mimes:jpeg|max:5048',
                 ]);
                 
                 //dd($request);
-        
+                $file = $request->file('profilePicture')->getClientOriginalName();
+                $filename = pathinfo($file, PATHINFO_FILENAME);
+                //dd($filename);
+
+
+                
                 $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
-                dd($request);
                 $request->profilePicture->move(public_path('images/clients'),$newImageName);
                 
                 //dd($request);
                 Client::create([
-                    'profilePicture' => $newImageName,
+                    'profilePicture' => time().$filename,
                     'name' => $request->name,
                     'email' => $request->email,
                     'email_verified_at' => now(),
@@ -90,17 +98,19 @@ class PageController extends Controller
                 'password' => 'required',
                 'address' => 'required',
                 'phone' => 'required',
-                'profilePicture' => 'required|image|mimes:png,jpg|max:5048',
+                'profilePicture' => 'required|image|mimes:jpeg|max:5048',
             ]);
             
             //dd($request);
+            $file = $request->file('profilePicture')->getClientOriginalName();
+            $filename = pathinfo($file, PATHINFO_FILENAME);
     
             $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
             $request->profilePicture->move(public_path('images/clients'),$newImageName);
             
             //dd($request);
             Manager::create([
-                'profilePicture' => $newImageName,
+                'profilePicture' => time().$filename,
                 'name' => $request->name,
                 'email' => $request->email,
                 'email_verified_at' => now(),
@@ -116,6 +126,10 @@ class PageController extends Controller
         }
     }
 
+    /**
+     * a client is ridirected to this window afrter registration
+     * @param request i dont know what it contains yet
+     */
     public function home(Request $request)
     {
         $dishes = Meal::all();

@@ -59,7 +59,10 @@
                         </div>
                         <div class="input-group">
                             <label>payment mode</label>
-                            <input type="number" name="payment" id="payment">
+                            <select name="payment" id="payment">
+                                <option value="orange Money" selected="selected">Orange Money</option>
+                                <option value="MTN Mobile Money">Mtn Mobile Money</option>
+                            </select>
                         </div>
                         <div class="input-group">
                             <input name="profilePicture" type="file">
