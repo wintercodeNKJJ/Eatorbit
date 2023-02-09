@@ -180,7 +180,7 @@
                                         <img src="{{ asset('images/clients/'. $reserve->client->profilePicture .'.jpeg') }}" class="resMenu_image">
                                         <div class="dish_description">
                                             <div class="dish_name">
-                                                <h2>{{ $reserve->client->profilePicture }}{{ $reserve->client->name }}</h2>
+                                                <h2>{{ $reserve->client->name }}</h2>
                                                 <div class="dish_details">
                                                     <p>address:{{ $reserve->client->address }}</p>
                                                     <!-- <p># of people</p>

@@ -58,7 +58,7 @@ class PageController extends Controller
         if($request->role == 1){
                 $request->validate([
                     'name' => 'required',
-                    'email' => 'required|email',
+                    'email' => 'required|email|unique:clients,email',
                     'password' => 'required',
                     'address' => 'required',
                     'phone' => 'required',
@@ -74,6 +74,7 @@ class PageController extends Controller
                 
                 $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
                 $request->profilePicture->move(public_path('images/clients'),$newImageName);
+                
                 
                 //dd($request);
                 Client::create([
@@ -94,7 +95,7 @@ class PageController extends Controller
             
             $request->validate([
                 'name' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:managers,email',
                 'password' => 'required',
                 'address' => 'required',
                 'phone' => 'required',
@@ -106,7 +107,7 @@ class PageController extends Controller
             $filename = pathinfo($file, PATHINFO_FILENAME);
     
             $newImageName = time().$request->file('profilePicture')->getClientOriginalName();
-            $request->profilePicture->move(public_path('images/clients'),$newImageName);
+            $request->profilePicture->move(public_path('images/managers'),$newImageName);
             
             //dd($request);
             Manager::create([

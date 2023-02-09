@@ -39,7 +39,7 @@
                         </div>
                         <div class="input-group">
                             <label>phone</label>
-                            <input type="text" name="phone" id="phone" placeholder="phone number">
+                            <input type="tel" name="phone" id="phone" placeholder="phone number">
                         </div>
                         <div class="input-group">
                             <label>password</label>
@@ -65,8 +65,8 @@
                             </select>
                         </div>
                         <div class="input-group">
-                            <input name="profilePicture" type="file">
-                            <select name="role" id="role">
+                            <input name="profilePicture" type="file" required>
+                            <select name="role" id="role" >
                                 <option value="1" selected="selected">user</option>
                                 <option value="2">Manager</option>
                             </select>

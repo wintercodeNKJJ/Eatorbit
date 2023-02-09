@@ -25,7 +25,8 @@
 
                     <form method="POST" action={{ route('verify') }}>
                         @csrf
-                        @if ($errors->any())
+                        <div class="input-group">
+                            @if ($errors->any())
                             <div style="color: red; font-family:Arial, Helvetica, sans-serif;">
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -34,6 +35,7 @@
                                 </ul>
                             </div>
                         @endif
+                        </div>
                         <div class="input-group">
                             <label>Email</label>
                             <input type="email" name="email" id="name" placeholder="user email">
